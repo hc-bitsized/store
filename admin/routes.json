@@ -1,0 +1,11 @@
+{
+    "admin.app.product-combinations": {
+      "component": "ProductCombinations",
+      "path": "/admin/app/product-combinations"
+    },
+
+    "admin.app.combinations-promotion": {
+        "component": "WeeklySuggestions",
+        "path": "/admin/app/combinations-promotion"
+    }
+}

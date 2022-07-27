@@ -1,0 +1,15 @@
+{
+    "section": "products",
+    "titleId": "admin-combinacoes.navigation.label",    
+    "searchKeyWordsHelpers": "admin-combinacoes.navigation.search.kws", 
+    "subSectionItems": [
+        {
+            "labelId": "admin-example.navigation.products",
+            "path": "/admin/product-combinations"
+        },
+        {
+            "labelId": "admin-example.navigation.promotions",
+            "path": "/admin/combinations-promotion"
+        }
+    ]
+}

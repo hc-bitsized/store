@@ -1,12 +1,15 @@
 {
-  "vendor": "store",
-  "name": "bitsized",
+  "vendor": "bitsized",
+  "name": "store",
   "version": "0.1.1",
   "builders": {
     "styles": "2.x",
     "store": "0.x",
     "node": "6.x",
-    "docs": "0.x"
+    "docs": "0.x",
+    "admin": "0.x",
+    "react": "3.x",
+    "messages": "1.x"
   },
   "scripts": {
     "postreleasy": "vtex publish --verbose"
