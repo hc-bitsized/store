@@ -1758,9 +1758,9 @@ bintrees@1.0.1:
   resolved "https://registry.npmjs.org/bintrees/-/bintrees-1.0.1.tgz#0e655c9b9c2435eaab68bf4027226d2b55a34524"
   integrity sha1-DmVcm5wkNeqraL9AJyJtK1WjRSQ=
 
-"bitsized.store@https://testefinal--bitsized.myvtex.com/_v/private/typings/linked/v1/bitsized.store@0.1.1+build1658885591/public/_types/react":
+"bitsized.store@https://testmateus--bitsized.myvtex.com/_v/private/typings/linked/v1/bitsized.store@0.1.1+build1658946008/public/@types/bitsized.store":
   version "0.0.0"
-  resolved "https://testefinal--bitsized.myvtex.com/_v/private/typings/linked/v1/bitsized.store@0.1.1+build1658885591/public/_types/react#fa7a0347e046eab3dd768998fc9252b2c0dd5aef"
+  resolved "https://testmateus--bitsized.myvtex.com/_v/private/typings/linked/v1/bitsized.store@0.1.1+build1658946008/public/@types/bitsized.store#3a83563a7e1a5a551c99b6ee0550b3f96d83b4bb"
 
 bl@^1.0.0:
   version "1.2.2"
@@ -5814,9 +5814,9 @@ verror@1.10.0:
   version "0.0.0"
   resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.product-kit@1.10.2/public/_types/react#fa7a0347e046eab3dd768998fc9252b2c0dd5aef"
 
-"vtex.product-list@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.product-list@0.35.0/public/@types/vtex.product-list":
-  version "0.35.0"
-  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.product-list@0.35.0/public/@types/vtex.product-list#1334bd0c9628e1b9ad3c6097d4df7d1abe00e443"
+"vtex.product-list@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.product-list@0.35.1/public/@types/vtex.product-list":
+  version "0.35.1"
+  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.product-list@0.35.1/public/@types/vtex.product-list#1f7363bbde3bce1a0f58b2f9bdad8c632aac496d"
 
 "vtex.product-price@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.product-price@1.29.0/public/@types/vtex.product-price":
   version "1.29.0"
