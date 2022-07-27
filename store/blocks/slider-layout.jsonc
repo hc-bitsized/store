@@ -1,0 +1,54 @@
+{
+    "slider-layout#home": {
+        "children": ["image#brand1", "image#brand2", "image#brand3", "image#brand4", "image#brand5", "image#brand6", "image#brand7"],
+        "props": {
+          "autoplay": {
+            "timeout": 7000,
+            "stopOnHover": true
+          },
+          "itemsPerPage": {
+            "desktop": 5,
+            "tablet": 4,
+            "phone": 3
+          }
+        }
+      },
+      "image#brand1":{
+        "props": {
+            "src": "https://i.ibb.co/qWKYKYX/hc.png"
+        }
+      },
+      "image#brand2":{
+        "props": {
+            "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/VTEX_Logo.svg/1200px-VTEX_Logo.svg.png"
+        }
+      },
+      "image#brand3":{
+        "props": { 
+            "src": "https://tellegroup.com/wp-content/uploads/2021/05/Amazon.png"
+        }
+      },
+      "image#brand4":{
+        "props": {
+            "src": "https://uploads-ssl.webflow.com/5f2d50967d364984a023dc4c/625dd37b3f04480ac30cbf70_acct-by-quality.svg"
+        }
+      },
+      "image#brand5":{
+        "props": {
+            "src": "https://uploads-ssl.webflow.com/5f2d50967d364984a023dc4c/62349f607ffcc3ec5ffda655_lebiscuit.svg"
+
+        }
+      },
+      "image#brand6":{
+        "props": {
+            "src": "https://uploads-ssl.webflow.com/5f2d50967d364984a023dc4c/6241b76308c60fc87df576f6_60d4ce90230d1b9443f8fb36_Nav%20bar%20gather%20logo.svg"
+
+        }
+      },
+      "image#brand7":{
+        "props": {
+            "src": "https://assets.website-files.com/5ff79f3ebebf6b12f6b7747f/5ffe04fc6284b7e90070d985_logo-gama-academy.png"
+
+        }
+      }
+}

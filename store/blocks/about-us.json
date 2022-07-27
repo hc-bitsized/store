@@ -1,0 +1,39 @@
+{
+  "store.custom#about-us": {
+    "blocks": ["flex-layout.row#about-us"]
+  },
+
+  "flex-layout.row#about-us": {
+    "children": ["image#mobile-phone", "flex-layout.col#text-about-us"]
+  },
+
+  "flex-layout.col#text-about-us": {
+    "children": ["rich-text#title-about-us", "rich-text#about-us"],
+    "props": {
+      "blockclass": "textColumn",
+      "preventVerticalStretch": true
+    }
+  },
+
+  "rich-text#title-about-us": {
+    "props": {
+      "text": "# Projeto da Final do Hiring Coders#3",
+      "blockClass": "title"
+    }
+  },
+
+  "image#mobile-phone": {
+    "props": {
+      "src": "https://imgkub.com/images/2022/07/14/bitsized.png",
+      "maxHeight": "",
+      "maxWidth": "",
+      "blockClass": "storePrint"
+    }
+  },
+  "rich-text#about-us": {
+    "props": {
+      "text": "### **Casa Bitsized** \n \n **Integrantes** \n Bruna Kroth \n Christiany Belini Goulart Delfin \n Danilo Antunes \n Ericky Carlos Santana Braga \n Filipe Carneiro de Almeida \n Henrique Melo Kikuchi \n Jean Pereira da Silva \n Leticia De Carvalho Costa Marques \n Marcelo Fernando Felix De Oliveira \n Sebastião Mateus Marques De Menezes",
+      "blockClass": "about"
+    }
+  }
+}
