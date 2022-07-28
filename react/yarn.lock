@@ -1871,9 +1871,9 @@ bcrypt-pbkdf@^1.0.0:
   dependencies:
     tweetnacl "^0.14.3"
 
-"bitsized.store@https://testmateus--bitsized.myvtex.com/_v/private/typings/linked/v1/bitsized.store@0.1.1+build1658946008/public/@types/bitsized.store":
+"bitsized.store@https://testefinal--bitsized.myvtex.com/_v/private/typings/linked/v1/bitsized.store@0.1.1+build1658948603/public/_types/react":
   version "0.0.0"
-  resolved "https://testmateus--bitsized.myvtex.com/_v/private/typings/linked/v1/bitsized.store@0.1.1+build1658946008/public/@types/bitsized.store#3a83563a7e1a5a551c99b6ee0550b3f96d83b4bb"
+  resolved "https://testefinal--bitsized.myvtex.com/_v/private/typings/linked/v1/bitsized.store@0.1.1+build1658948603/public/_types/react#fa7a0347e046eab3dd768998fc9252b2c0dd5aef"
 
 brace-expansion@^1.1.7:
   version "1.1.11"
@@ -5149,9 +5149,13 @@ verror@1.10.0:
   version "1.4.3"
   resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.store-video@1.4.3/public/@types/vtex.store-video#39c9ebc2b1d0edbf3310226b6d93bc1c09091856"
 
-"vtex.store@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.store@2.126.0/public/@types/vtex.store":
-  version "2.126.0"
-  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.store@2.126.0/public/@types/vtex.store#b4f3da93ebc71eb37aa4bda0482ee15e0b6f657a"
+"vtex.store@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.store@2.126.18/public/@types/vtex.store":
+  version "2.126.18"
+  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.store@2.126.18/public/@types/vtex.store#f260ee691c92d9c043124b298d86feb527667fef"
+
+"vtex.styleguide@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.styleguide@9.146.1/public/@types/vtex.styleguide":
+  version "9.146.1"
+  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.styleguide@9.146.1/public/@types/vtex.styleguide#66db40ca1b78ad77ce4beedabecee320e1ef2ead"
 
 "vtex.tab-layout@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.tab-layout@0.4.3/public/@types/vtex.tab-layout":
   version "0.4.3"

@@ -1,6 +1,6 @@
 {
     "slider-layout#home": {
-        "children": ["image#brand1", "image#brand2", "image#brand3", "image#brand4", "image#brand5", "image#brand6", "image#brand7"],
+        "children": ["image#brand1", "image#brand2", "image#brand3", "image#brand4", "image#brand5", "image#brand6", "image#brand7", "image#brand8"],
         "props": {
           "autoplay": {
             "timeout": 7000,
@@ -8,8 +8,8 @@
           },
           "itemsPerPage": {
             "desktop": 5,
-            "tablet": 4,
-            "phone": 3
+            "tablet": 3,
+            "phone": 2
           }
         }
       },
@@ -20,22 +20,26 @@
       },
       "image#brand2":{
         "props": {
-            "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/VTEX_Logo.svg/1200px-VTEX_Logo.svg.png"
+            "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/VTEX_Logo.svg/1200px-VTEX_Logo.svg.png",
+            "height": 60
         }
       },
       "image#brand3":{
         "props": { 
-            "src": "https://tellegroup.com/wp-content/uploads/2021/05/Amazon.png"
+            "src": "https://uploads-ssl.webflow.com/5f2d50967d364984a023dc4c/623331bd15b7213b5b76d15c_AWS_logo_RGB.svg",
+            "height": 60
         }
       },
       "image#brand4":{
         "props": {
-            "src": "https://uploads-ssl.webflow.com/5f2d50967d364984a023dc4c/625dd37b3f04480ac30cbf70_acct-by-quality.svg"
+            "src": "https://uploads-ssl.webflow.com/5f2d50967d364984a023dc4c/625dd37b3f04480ac30cbf70_acct-by-quality.svg",
+            "height": 90
         }
       },
       "image#brand5":{
         "props": {
-            "src": "https://uploads-ssl.webflow.com/5f2d50967d364984a023dc4c/62349f607ffcc3ec5ffda655_lebiscuit.svg"
+            "src": "https://uploads-ssl.webflow.com/5f2d50967d364984a023dc4c/62349f607ffcc3ec5ffda655_lebiscuit.svg",
+            "height": 50
 
         }
       },
@@ -48,7 +52,12 @@
       "image#brand7":{
         "props": {
             "src": "https://assets.website-files.com/5ff79f3ebebf6b12f6b7747f/5ffe04fc6284b7e90070d985_logo-gama-academy.png"
-
+        }
+      },
+      "image#brand8":{
+        "props": {
+            "src": "https://salvadortech.salvador.ba.gov.br/wp-content/uploads/2021/08/marcassatech.png",
+            "height": 60
         }
       }
 }
