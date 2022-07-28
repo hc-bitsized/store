@@ -70,13 +70,18 @@ function ProductCombinations() {
 
   const createSuggestion = (product: Product) => {    
     let saida = `Sugestão criada: ${product.name}`
-    product.suggestions.forEach(item => {
-      saida+= ` + ${item.label}`
-    })
-
-    setCombinations([ ...combinations, saida ])
-    console.log(combinations)
-    console.log(saida)
+    console.log(product.suggestions)
+    if(product.suggestions.length > 0) {
+      product.suggestions.forEach(item => {
+        saida+= ` + ${item.label}`
+      })
+  
+      setCombinations([ ...combinations, saida ])
+      console.log(combinations)
+      console.log(saida)
+    } else {
+      alert("Por favor, insira alum intem como sugestão para este produto!")
+    }
   }
 
   const updateProductSuggestion = (productIndex:number, newOptions: Option[]) => {
