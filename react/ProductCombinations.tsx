@@ -1,5 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import { Layout, PageBlock, Button, InputSearch, EXPERIMENTAL_Select as Select } from 'vtex.styleguide'
+import { 
+        Layout,
+        PageBlock,
+        Button,
+        InputSearch,
+        Spinner,
+        EXPERIMENTAL_Select as Select
+       } from 'vtex.styleguide'
 
 interface Product {
   id: string
@@ -15,7 +22,17 @@ interface Option {
 
 function ProductCombinations() {
   const [productsData, setProductsData] = useState<Array<Product>>([])
-  const [combination, setCombination] = useState<Array<string>>([])
+  const [productsLoading, setProductsLoading] = useState<boolean>(true)
+  const [searchedProductsIds, setSearchedProductsIds] = useState<string[]>([])
+  const [combinations, setCombinations] = useState<Array<string>>([])
+
+  const [searchQuery, setSearchQuery] = useState<string>('')
+  const [searchNotFoundMessage, setSearchNotFoundMessage] = useState<string>('')
+
+  useEffect(() => {
+    fetchProducts()
+    //console.log(searchNotFoundMessage)
+  }, [])
 
   const fetchProducts = async() => {
     const productsIds = await fetch('/api/catalog_system/pvt/products/GetProductAndSkuIds')
@@ -25,21 +42,22 @@ function ProductCombinations() {
     for(const item in data){
       const resProduct = await fetch(`/api/catalog_system/pvt/products/productget/${item}`)
       const {Id, IsActive, Name} = await resProduct.json()
-      const Product: Product = {
+      const product: Product = {
         id: Id,
         isActive: IsActive,
         name: Name,
         suggestions: []
       }
-      allProductsData.push(Product)
+      allProductsData.push(product)
     }
     setProductsData(allProductsData)
+    setProductsLoading(false)
   }
 
-  const productToOptions = (): Option[] => {
+  const productToOptions = (productSelect: Product): Option[] => {
     const options: Option[] = []
     productsData.forEach((product) => {
-      if(product.isActive){
+      if(product.isActive && product !== productSelect){
         const newOption: Option = {
           value: product.id,
           label: product.name
@@ -56,47 +74,71 @@ function ProductCombinations() {
       saida+= ` + ${item.label}`
     })
 
-    setCombination([ ...combination, saida ])
-    console.log(combination)
+    setCombinations([ ...combinations, saida ])
+    console.log(combinations)
     console.log(saida)
   }
 
   const updateProductSuggestion = (productIndex:number, newOptions: Option[]) => {
     const productToBeUpdated = productsData[productIndex]    
-    const allProducts = productsData 
+    const allProducts = productsData
     productToBeUpdated.suggestions = newOptions
     allProducts[productIndex] = productToBeUpdated
     setProductsData(allProducts)
   }
 
+  const handleSearchQuery = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const lowerCase = e.target.value.toLowerCase()  
+    if(lowerCase == ''){
+      setSearchedProductsIds([])
+    }  
+    setSearchQuery(lowerCase)
+  }
+
+  const handleSearchProducts = () => {
+    const matchedProducts: string[] = []
+    productsData.forEach(item => {
+      if(item.isActive && item.name.toLocaleLowerCase().includes(searchQuery)){
+        matchedProducts.push(item.id)
+      }
+    })
+
+    matchedProducts.length === 0 ? setSearchNotFoundMessage("Nenhum produto encontrado") : setSearchNotFoundMessage('')
+    setSearchedProductsIds(matchedProducts)
+  }
+
+  const renderCombinations = (product: Product): React.ReactElement[] => {
+    const productCombinations: React.ReactElement[] = []
+    combinations.forEach(item => {
+      if(item.includes(`Sugestão criada: ${product.name}`)) {
+        productCombinations.push(<div className="flex">{item}</div>)
+      }
+    })
+
+    return productCombinations
+  }
+
   const renderProducts = (): React.ReactElement[] => {
     const productBlocks: React.ReactElement[] = []
     productsData.forEach((product, index) => {
-      if(product.isActive){
+      if(product.isActive && (searchedProductsIds.includes(product.id) || searchedProductsIds.length === 0)) {
         productBlocks.push(
           <PageBlock key={product.id}>
               <Select
                 label={product.name}
-                options={productToOptions()}
+                options={productToOptions(product)}
                 multi={true}
                 onChange={(values: []) => updateProductSuggestion(index, values)}                
                 creatable
-                /> 
-              <div className="flex mv3 items-center">          
+                />
+            <div className="flex mv3 items-center">        
               <Button size="small" variation="secondary" onClick={() => createSuggestion(product)}>
-                Criar sugestão 
+                Criar sugestão
               </Button>
-              </div>
-              { 
-                combination.map(item => {
-                  if(item.includes(`Sugestão criada: ${product.name}`)) {
-                    return(<div>{item}</div>)
-                  } else {
-                    return('')
-                  }
-                  
-                })
-              }            
+            </div>
+            <div>
+              {renderCombinations(product)}
+            </div>
           </PageBlock>
         )
       }
@@ -105,10 +147,6 @@ function ProductCombinations() {
     return productBlocks
   }
 
-  useEffect(() => {
-    fetchProducts()
-  }, [])
-
   return (
     <Layout>
       <PageBlock 
@@ -116,16 +154,24 @@ function ProductCombinations() {
         title="Sugestões de produto"
         subtitle="Para cada produto, selecione as sugestões desejadas. As opções selecionadas apareceram na página do produto."
       >
-        <div className="flex mv3 items-center">
-          <InputSearch
-            placeholder="Pesquise seu produto"    
-            label=""
-            size="small"    
-          />
-        </div>
-        {renderProducts()}  
+      <div className="flex mv3 items-center">
+        <InputSearch 
+          placeholder="Qual produto está procurando?"
+          value={searchQuery}
+          onChange={handleSearchQuery}
+          onSubmit={handleSearchProducts}
+          errorMessage={searchNotFoundMessage}
+          disabled={productsLoading}
+        />
+      </div>
+        {
+          productsLoading ? 
+          <PageBlock> <Spinner /> </PageBlock>   
+          :
+          renderProducts()
+        }
       </PageBlock>
-    </Layout> 
+    </Layout>
   )
 }
 

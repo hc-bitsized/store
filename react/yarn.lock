@@ -5153,10 +5153,6 @@ verror@1.10.0:
   version "2.126.18"
   resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.store@2.126.18/public/@types/vtex.store#f260ee691c92d9c043124b298d86feb527667fef"
 
-"vtex.styleguide@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.styleguide@9.146.1/public/@types/vtex.styleguide":
-  version "9.146.1"
-  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.styleguide@9.146.1/public/@types/vtex.styleguide#66db40ca1b78ad77ce4beedabecee320e1ef2ead"
-
 "vtex.tab-layout@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.tab-layout@0.4.3/public/@types/vtex.tab-layout":
   version "0.4.3"
   resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.tab-layout@0.4.3/public/@types/vtex.tab-layout#579ee7ffabb55ce7ed271b0af1015f41c49b7f30"
