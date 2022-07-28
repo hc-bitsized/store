@@ -12,7 +12,6 @@
       "slider-layout#home"
     ]
   },
-
   "list-context.image-list#demo": {
     "children": ["slider-layout#demo-images"],
     "props": {
@@ -21,6 +20,10 @@
       "images": [
         {
           "image": "https://imgkub.com/images/2022/07/14/desktop.png",
+          "mobileImage": "https://imgkub.com/images/2022/07/14/mobile.png"
+        },
+        {
+          "image": "https://imgkub.com/images/2022/07/29/banner-novidades-bitsized.gif",
           "mobileImage": "https://imgkub.com/images/2022/07/14/mobile.png"
         }
       ]
@@ -67,7 +70,6 @@
       "blockClass": "shelf"
     }
   },
-
   "info-card#home": {
     "props": {
       "id": "info-card-home",
