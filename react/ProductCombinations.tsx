@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Layout, PageBlock, Button, EXPERIMENTAL_Select as Select } from 'vtex.styleguide'
+import { Layout, PageBlock, Button, InputSearch, EXPERIMENTAL_Select as Select } from 'vtex.styleguide'
 
 interface Product {
   id: string
@@ -15,6 +15,7 @@ interface Option {
 
 function ProductCombinations() {
   const [productsData, setProductsData] = useState<Array<Product>>([])
+  const [combination, setCombination] = useState<Array<string>>([])
 
   const fetchProducts = async() => {
     const productsIds = await fetch('/api/catalog_system/pvt/products/GetProductAndSkuIds')
@@ -49,19 +50,20 @@ function ProductCombinations() {
     return options
   }
 
-  const createSuggestion = (product: Product) => {
-    let saida = `Criando a sugestão do produto ${product.name} com os seguintes produtos: `
+  const createSuggestion = (product: Product) => {    
+    let saida = `Sugestão criada: ${product.name}`
     product.suggestions.forEach(item => {
-      saida+=item.label + " "
+      saida+= ` + ${item.label}`
     })
-    
+
+    setCombination([ ...combination, saida ])
+    console.log(combination)
     console.log(saida)
   }
 
-
   const updateProductSuggestion = (productIndex:number, newOptions: Option[]) => {
     const productToBeUpdated = productsData[productIndex]    
-    const allProducts = productsData
+    const allProducts = productsData 
     productToBeUpdated.suggestions = newOptions
     allProducts[productIndex] = productToBeUpdated
     setProductsData(allProducts)
@@ -79,10 +81,22 @@ function ProductCombinations() {
                 multi={true}
                 onChange={(values: []) => updateProductSuggestion(index, values)}                
                 creatable
-                />
-            <Button variation="primary" onClick={() => createSuggestion(product)}>
-              Criar sugestão
-            </Button>
+                /> 
+              <div className="flex mv3 items-center">          
+              <Button size="small" variation="secondary" onClick={() => createSuggestion(product)}>
+                Criar sugestão 
+              </Button>
+              </div>
+              { 
+                combination.map(item => {
+                  if(item.includes(`Sugestão criada: ${product.name}`)) {
+                    return(<div>{item}</div>)
+                  } else {
+                    return('')
+                  }
+                  
+                })
+              }            
           </PageBlock>
         )
       }
@@ -102,9 +116,16 @@ function ProductCombinations() {
         title="Sugestões de produto"
         subtitle="Para cada produto, selecione as sugestões desejadas. As opções selecionadas apareceram na página do produto."
       >
-        {renderProducts()}    
+        <div className="flex mv3 items-center">
+          <InputSearch
+            placeholder="Pesquise seu produto"    
+            label=""
+            size="small"    
+          />
+        </div>
+        {renderProducts()}  
       </PageBlock>
-    </Layout>
+    </Layout> 
   )
 }
 
