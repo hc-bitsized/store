@@ -80,7 +80,7 @@ function ProductCombinations() {
       console.log(combinations)
       console.log(saida)
     } else {
-      alert("Por favor, insira alum intem como sugestão para este produto!")
+      alert("Por favor, insira algum item como sugestão para este produto!")
     }
   }
 
