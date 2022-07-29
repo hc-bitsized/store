@@ -14,6 +14,7 @@ interface Product {
   isActive: boolean
   name: string
   suggestions: Option[]
+  imagesURLs: string[]
 }
 
 interface Option {
@@ -43,11 +44,26 @@ function ProductCombinations() {
     for(const item in data){
       const resProduct = await fetch(`/api/catalog_system/pvt/products/productget/${item}`)
       const {Id, IsActive, Name} = await resProduct.json()
+      
+      const allImagesUrls:string[] = []
+      if(IsActive){
+        const resProductVariation = await fetch(`/api/catalog_system/pub/products/variations/${item}`)
+
+        if(resProductVariation.status == 200){
+          const { skus } = await resProductVariation.json()
+          
+          skus.forEach((item:any) => {
+            allImagesUrls.push(item.image)
+          })
+          console.log(allImagesUrls)
+          }
+      }
       const product: Product = {
         id: Id,
         isActive: IsActive,
         name: Name,
-        suggestions: []
+        suggestions: [],
+        imagesURLs: allImagesUrls
       }
       allProductsData.push(product)
     }
@@ -131,19 +147,38 @@ function ProductCombinations() {
     return productCombinations
   }
 
+  const renderProductImages = (product: Product): React.ReactElement[] => {
+    const productImages: React.ReactElement[] = []
+    product.imagesURLs.forEach(item => {
+      productImages.push(
+        <div>
+          <img width="128" height="128" src={item} alt={product.name}/>
+        </div>
+      )
+    })
+
+    return productImages
+  }
+
   const renderProducts = (): React.ReactElement[] => {
     const productBlocks: React.ReactElement[] = []
     productsData.forEach((product, index) => {
       if(product.isActive && (searchedProductsIds.includes(product.id) || searchedProductsIds.length === 0)) {
         productBlocks.push(
           <PageBlock key={product.id}>
-              <Select
-                label={product.name}
-                options={productToOptions(product)}
-                multi={true}
-                onChange={(values: []) => updateProductSuggestion(index, values)}                
-                creatable
-                />
+            <div className="flex items-center">
+              {renderProductImages(product)}
+            </div>
+            <div className="mv3">
+              {product.name}
+            </div>
+            <Select
+              placeholder="Selecione..."
+              options={productToOptions(product)}
+              multi={true}
+              onChange={(values: []) => updateProductSuggestion(index, values)}                
+              creatable
+              />
             <div className="flex mv3 items-center">        
               <Button size="small" variation="secondary" onClick={() => createSuggestion(product)}>
                 Criar sugestão
