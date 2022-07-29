@@ -22,7 +22,7 @@
   },
   "rich-text#deal1": {
     "props": {
-      "text": "Envio Grátis",
+      "text": "Envio Grátis*",
       "blockClass": "deals"
     }
   },
