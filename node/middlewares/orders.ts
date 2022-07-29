@@ -23,7 +23,8 @@ export async function orders(ctx: Context, next: () => Promise<any>) {
                             }
                         }
             }
-    * Precisa cadastrar uma api token la no vtex admin        
+    * Precisa cadastrar uma api token la no vtex admin
+    * https://developers.vtex.com/vtex-rest-api/reference/hookconfiguration   
     */
 
     // tem q fazer isso pq a info que vem do hook vem como binario
