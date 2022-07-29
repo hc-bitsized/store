@@ -5,6 +5,7 @@ import {
         Button,
         InputSearch,
         Spinner,
+        ButtonPlain,
         EXPERIMENTAL_Select as Select
        } from 'vtex.styleguide'
 
@@ -116,7 +117,14 @@ function ProductCombinations() {
     const productCombinations: React.ReactElement[] = []
     combinations.forEach(item => {
       if(item.includes(`Sugestão criada: ${product.name}`)) {
-        productCombinations.push(<div className="flex">{item}</div>)
+        productCombinations.push(
+          <div className="flex justify-between mv5">
+            {item}
+            <ButtonPlain variation="danger" className="mh7">
+              Excluir
+            </ButtonPlain>
+          </div>
+        )
       }
     })
 
