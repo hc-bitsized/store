@@ -1871,9 +1871,9 @@ bcrypt-pbkdf@^1.0.0:
   dependencies:
     tweetnacl "^0.14.3"
 
-"bitsized.store@https://testefinal--bitsized.myvtex.com/_v/private/typings/linked/v1/bitsized.store@0.1.1+build1658948603/public/_types/react":
+"bitsized.store@https://testemf--bitsized.myvtex.com/_v/private/typings/linked/v1/bitsized.store@0.1.1+build1659048116/public/@types/bitsized.store":
   version "0.0.0"
-  resolved "https://testefinal--bitsized.myvtex.com/_v/private/typings/linked/v1/bitsized.store@0.1.1+build1658948603/public/_types/react#fa7a0347e046eab3dd768998fc9252b2c0dd5aef"
+  resolved "https://testemf--bitsized.myvtex.com/_v/private/typings/linked/v1/bitsized.store@0.1.1+build1659048116/public/@types/bitsized.store#ccc280d9683cdba3b136214a983d5adb3b1ddf79"
 
 brace-expansion@^1.1.7:
   version "1.1.11"
@@ -5001,9 +5001,9 @@ verror@1.10.0:
   version "2.34.25"
   resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.menu@2.34.25/public/@types/vtex.menu#3f4c3aa3b5f8c396d1a630703862d354681ae5a2"
 
-"vtex.minicart@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.minicart@2.63.4/public/@types/vtex.minicart":
-  version "2.63.4"
-  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.minicart@2.63.4/public/@types/vtex.minicart#45b66e301ae1dcf7cc3b6fb630b4a04900471d49"
+"vtex.minicart@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.minicart@2.63.5/public/@types/vtex.minicart":
+  version "2.63.5"
+  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.minicart@2.63.5/public/@types/vtex.minicart#1a7763f5187241bd709beecd2a81ab5d96bd50be"
 
 "vtex.modal-layout@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.modal-layout@0.13.0/public/@types/vtex.modal-layout":
   version "0.13.0"
@@ -5113,9 +5113,9 @@ verror@1.10.0:
   version "0.3.4"
   resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.sticky-layout@0.3.4/public/@types/vtex.sticky-layout#5b786d6f9ab0a40e4997c955a75885eee32515ef"
 
-"vtex.store-components@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.store-components@3.161.27/public/@types/vtex.store-components":
-  version "3.161.27"
-  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.store-components@3.161.27/public/@types/vtex.store-components#e5a132c5ab3fa1c6646d1caa21591db123f45741"
+"vtex.store-components@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.store-components@3.161.28/public/@types/vtex.store-components":
+  version "3.161.28"
+  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.store-components@3.161.28/public/@types/vtex.store-components#14dac3a4528fd4ba7380a24694dbbfd8a54bdd78"
 
 "vtex.store-drawer@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.store-drawer@0.16.2/public/@types/vtex.store-drawer":
   version "0.16.2"
@@ -5149,9 +5149,9 @@ verror@1.10.0:
   version "1.4.3"
   resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.store-video@1.4.3/public/@types/vtex.store-video#39c9ebc2b1d0edbf3310226b6d93bc1c09091856"
 
-"vtex.store@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.store@2.126.18/public/@types/vtex.store":
-  version "2.126.18"
-  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.store@2.126.18/public/@types/vtex.store#f260ee691c92d9c043124b298d86feb527667fef"
+"vtex.store@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.store@2.126.20/public/@types/vtex.store":
+  version "2.126.20"
+  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.store@2.126.20/public/@types/vtex.store#5f629666ccc6be68edcd14e7904ca8a4511a3027"
 
 "vtex.tab-layout@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.tab-layout@0.4.3/public/@types/vtex.tab-layout":
   version "0.4.3"

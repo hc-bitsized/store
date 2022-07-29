@@ -6,10 +6,11 @@
       "condition-layout.product#availability",
       "flex-layout.row#description",
       "flex-layout.row#specifications-title",
+      "product-shelf",
       "product-specification-group#table",
       "shelf.relatedProducts",
       "product-reviews",
-      "product-questions-and-answers"
+      "product-questions-and-answers" 
     ]
   },
   "flex-layout.row#specifications-title": {
