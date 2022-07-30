@@ -1,0 +1,8 @@
+version: '3.4'
+services:
+  backend:
+    container_name: backend
+    image: hc/backend:latest
+    ports:
+      - "3000:3000"
+    entrypoint: ["sh", '-c', "node app.js"]
