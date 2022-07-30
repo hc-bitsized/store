@@ -1,10 +1,13 @@
 import { IOClients } from '@vtex/api'
 
-import Status from './status'
-
-// Extend the default IOClients implementation with our own custom clients.
+import OrderClient from './OrderClient'
+import AwsApiClient from './AwsApiClient'
 export class Clients extends IOClients {
-  public get status() {
-    return this.getOrSet('status', Status)
+  public get order() {
+    return this.getOrSet('order-client', OrderClient)
+  }
+
+  public get awsapi() {
+    return this.getOrSet('awsapi-client', AwsApiClient)
   }
 }

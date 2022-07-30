@@ -19,7 +19,6 @@
     "@vtex/test-tools": "^3.3.2",
     "@vtex/tsconfig": "^0.4.4",
     "apollo-cache-inmemory": "^1.6.5",
-    "bitsized.store": "https://testemf--bitsized.myvtex.com/_v/private/typings/linked/v1/bitsized.store@0.1.1+build1659048116/public/@types/bitsized.store",
     "graphql": "^14.6.0",
     "typescript": "3.9.7",
     "vtex.add-to-cart-button": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.add-to-cart-button@0.28.0/public/@types/vtex.add-to-cart-button",

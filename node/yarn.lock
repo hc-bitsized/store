@@ -1758,10 +1758,6 @@ bintrees@1.0.1:
   resolved "https://registry.npmjs.org/bintrees/-/bintrees-1.0.1.tgz#0e655c9b9c2435eaab68bf4027226d2b55a34524"
   integrity sha1-DmVcm5wkNeqraL9AJyJtK1WjRSQ=
 
-"bitsized.store@https://testemf--bitsized.myvtex.com/_v/private/typings/linked/v1/bitsized.store@0.1.1+build1659048116/public/@types/bitsized.store":
-  version "0.0.0"
-  resolved "https://testemf--bitsized.myvtex.com/_v/private/typings/linked/v1/bitsized.store@0.1.1+build1659048116/public/@types/bitsized.store#ccc280d9683cdba3b136214a983d5adb3b1ddf79"
-
 bl@^1.0.0:
   version "1.2.2"
   resolved "http://registry.npmjs.org/bl/-/bl-1.2.2.tgz#a160911717103c07410cef63ef51b397c025af9c"

@@ -1871,10 +1871,6 @@ bcrypt-pbkdf@^1.0.0:
   dependencies:
     tweetnacl "^0.14.3"
 
-"bitsized.store@https://testemf--bitsized.myvtex.com/_v/private/typings/linked/v1/bitsized.store@0.1.1+build1659048116/public/@types/bitsized.store":
-  version "0.0.0"
-  resolved "https://testemf--bitsized.myvtex.com/_v/private/typings/linked/v1/bitsized.store@0.1.1+build1659048116/public/@types/bitsized.store#ccc280d9683cdba3b136214a983d5adb3b1ddf79"
-
 brace-expansion@^1.1.7:
   version "1.1.11"
   resolved "https://registry.yarnpkg.com/brace-expansion/-/brace-expansion-1.1.11.tgz#3c7fcbf529d87226f3d2f52b966ff5271eb441dd"

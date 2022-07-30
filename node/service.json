@@ -5,9 +5,15 @@
   "minReplicas": 2,
   "maxReplicas": 4,
   "workers": 1,
+  "events": {
+    "OrderStatusUpdated": {
+      "sender": "vtex.orders-broadcast",
+      "topics": ["order-status-updated"]
+    }
+  },
   "routes": {
-    "status": {
-      "path": "/_v/status/:code",
+    "hcheck": {
+      "path": "/_v/hcheck",
       "public": true
     }
   }
