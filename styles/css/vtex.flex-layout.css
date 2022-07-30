@@ -12,7 +12,7 @@
 
 @media screen and (min-width: 80rem) {
   .flexRowContent--menu-link,
-  .flexRowContent--main-header {
+  .flexRowContent--main-header { 
     padding: 0 0.25rem;
   }
 }
