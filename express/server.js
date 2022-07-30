@@ -1,5 +1,5 @@
 ﻿/* Importando as configurações do servidor */
-var app = require('./config/server');
+var app = require('./config/app');
 
 /* Colocar o servidor online */
 app.listen(3000, function(){

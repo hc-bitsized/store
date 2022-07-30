@@ -7,3 +7,5 @@ COPY . .
 RUN npm ci --production --unsafe-perm
 
 EXPOSE 3000
+
+CMD ["sh", "-c", "node server.js"]
