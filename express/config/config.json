@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "bitsized-g4",
+    "password": "bitsized-g4*",
+    "database": "bitsized-g4",
+    "host": "musculacao-db.cetjcgngktwh.sa-east-1.rds.amazonaws.com",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "bitsized-g4",
+    "password": "bitsized-g4*",
+    "database": "bitsized-g4",
+    "host": "musculacao-db.cetjcgngktwh.sa-east-1.rds.amazonaws.com",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "bitsized-g4",
+    "password": "bitsized-g4*",
+    "database": "bitsized-g4",
+    "host": "musculacao-db.cetjcgngktwh.sa-east-1.rds.amazonaws.com",
+    "dialect": "mysql"
+  }
+}
