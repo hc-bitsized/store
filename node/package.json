@@ -11,7 +11,6 @@
     "@vtex/api": "6.45.12",
     "@vtex/test-tools": "^1.0.0",
     "@vtex/tsconfig": "^0.5.6",
-    "bitsized.store": "https://testefinal--bitsized.myvtex.com/_v/private/typings/linked/v1/bitsized.store@0.1.1+build1659304772/public/@types/bitsized.store",
     "typescript": "3.9.7",
     "vtex.add-to-cart-button": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.add-to-cart-button@0.28.0/public/@types/vtex.add-to-cart-button",
     "vtex.breadcrumb": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.breadcrumb@1.9.4/public/@types/vtex.breadcrumb",
