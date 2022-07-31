@@ -74,10 +74,10 @@
       "highlight": false,
       "itemProps": {
         "type": "internal",
-        "href": "/eletronicos/smartphone",
+        "href": "/roupas/masculinas/camisas-masculinas",
         "noFollow": true,
-        "tagTitle": "Smartphones",
-        "text": "Smartphones"
+        "tagTitle": "Camisas - Masculino",
+        "text": "Camisas - Masculino"
       }
     }
   },
@@ -90,10 +90,10 @@
       "highlight": false,
       "itemProps": {
         "type": "internal",
-        "href": "/videogames/d",
+        "href": "/roupas/masculinas/moletom-masculino",
         "noFollow": true,
-        "tagTitle": "Videogames",
-        "text": "Videogames"
+        "tagTitle": "Moletons - Masculino",
+        "text": "Moletons - Masculino"
       }
     }
   },
@@ -106,10 +106,10 @@
       "highlight": false,
       "itemProps": {
         "type": "internal",
-        "href": "/tvs/d",
+        "href": "/roupas/masculinas/short",
         "noFollow": true,
-        "tagTitle": "TVs",
-        "text": "TVs"
+        "tagTitle": "Shorts - Masculino",
+        "text": "Shorts - Masculino"
       }
     }
   },
@@ -118,11 +118,7 @@
     "props": {
       "orientation": "vertical"
     },
-    "children": [
-      "menu-item#bags",
-      "menu-item#backpacks",
-      "menu-item#necessaire"
-    ]
+    "children": ["menu-item#bags", "menu-item#backpacks"]
   },
 
   "menu-item#bags": {
@@ -133,10 +129,10 @@
       "highlight": false,
       "itemProps": {
         "type": "internal",
-        "href": "/mouse-pad/d",
+        "href": "/roupas/meias",
         "noFollow": true,
-        "tagTitle": "Mouse Pad",
-        "text": "Mouse Pad"
+        "tagTitle": "Meias",
+        "text": "Meias"
       }
     }
   },
@@ -149,26 +145,10 @@
       "highlight": false,
       "itemProps": {
         "type": "internal",
-        "href": "/monitor/d",
+        "href": "/variedades",
         "noFollow": true,
-        "tagTitle": "Monitor",
-        "text": "Monitor"
-      }
-    }
-  },
-
-  "menu-item#necessaire": {
-    "props": {
-      "id": "menu-item-necessaire",
-      "type": "custom",
-      "iconId": null,
-      "highlight": false,
-      "itemProps": {
-        "type": "internal",
-        "href": "/caixa-de-som/d",
-        "noFollow": true,
-        "tagTitle": "Caixa de Som",
-        "text": "Caixa de Som"
+        "tagTitle": "Variedades",
+        "text": "Variedades"
       }
     }
   },
@@ -180,10 +160,7 @@
     "children": [
       "menu-item#clothing",
       "menu-item#shorts",
-      "menu-item#tank-tops",
-      "menu-item#shirts",
-      "menu-item#sweatshirt",
-      "menu-item#cropped"
+      "menu-item#tank-tops"
     ]
   },
 
@@ -206,10 +183,10 @@
       "highlight": false,
       "itemProps": {
         "type": "internal",
-        "href": "/bitsizedtech/eletronicos",
+        "href": "/roupas/femininas",
         "noFollow": true,
-        "tagTitle": "Informática",
-        "text": "Informática"
+        "tagTitle": "Feminino",
+        "text": "Feminino"
       }
     },
     "blocks": ["vtex.menu@2.x:submenu.accordion#clothing"]
@@ -222,20 +199,14 @@
     "props": {
       "orientation": "vertical"
     },
-    "children": [
-      "menu-item#shorts",
-      "menu-item#tank-tops",
-      "menu-item#shirts",
-      "menu-item#sweatshirt",
-      "menu-item#cropped"
-    ]
+    "children": ["menu-item#shorts", "menu-item#tank-tops", "menu-item#camisas"]
   },
 
   "menu-item#decoration-mobile": {
     "props": {
       "itemProps": {
-        "tagTitle": "Eletrônicos",
-        "text": "Eletrônicos"
+        "tagTitle": "Masculino",
+        "text": "Masculino"
       }
     },
     "blocks": ["vtex.menu@2.x:submenu.accordion#decoration"]
@@ -287,10 +258,10 @@
       "highlight": false,
       "itemProps": {
         "type": "internal",
-        "href": "/headset/d",
+        "href": "/roupas/femininas/camisas-femininas",
         "noFollow": true,
-        "tagTitle": "Headset Gamer",
-        "text": "Headset Gamer"
+        "tagTitle": "Camisas",
+        "text": "Camisas - Feminino"
       }
     }
   },
@@ -303,10 +274,10 @@
       "highlight": false,
       "itemProps": {
         "type": "internal",
-        "href": "/gabinete/d",
+        "href": "/roupas/femininas/moletom-feminino",
         "noFollow": false,
-        "tagTitle": "Gabinete Gamer",
-        "text": "Gabinete Gamer"
+        "tagTitle": "Camisas",
+        "text": "Moletons - Feminino"
       }
     }
   },
@@ -319,58 +290,25 @@
       "highlight": false,
       "itemProps": {
         "type": "internal",
-        "href": "/bitsizedtech/eletronicos/notebooks",
+        "href": "/roupas/femininas/calcas-femininas",
         "noFollow": false,
-        "tagTitle": "Notebook Gamer",
-        "text": "Notebook Gamer"
+        "tagTitle": "Calças - Feminino",
+        "text": "Calças - Feminino"
       }
     }
   },
-
-  "menu-item#shirts": {
+  "menu-item#camisas": {
     "props": {
-      "id": "menu-item-shirts",
+      "id": "menu-item-shorts",
       "type": "custom",
       "iconId": null,
       "highlight": false,
       "itemProps": {
         "type": "internal",
-        "href": "/cadeira-gamer-asus-rog-chariot-aura-rgb-braco-4d-preto/p",
+        "href": "/roupas/femininas/moletom-feminino",
         "noFollow": false,
-        "tagTitle": "Cadeira Gamer",
-        "text": "Cadeira Gamer"
-      }
-    }
-  },
-
-  "menu-item#sweatshirt": {
-    "props": {
-      "id": "menu-item-sweat-shirts",
-      "type": "custom",
-      "iconId": null,
-      "highlight": false,
-      "itemProps": {
-        "type": "internal",
-        "href": "/teclado/d",
-        "noFollow": false,
-        "tagTitle": "Teclado",
-        "text": "Teclado"
-      }
-    }
-  },
-
-  "menu-item#cropped": {
-    "props": {
-      "id": "menu-item-cropped",
-      "type": "custom",
-      "iconId": null,
-      "highlight": false,
-      "itemProps": {
-        "type": "internal",
-        "href": "/mouse-gamer-corsair/p",
-        "noFollow": false,
-        "tagTitle": "Mouse",
-        "text": "Mouse"
+        "tagTitle": "Moletons - Feminino",
+        "text": "Moletons - Feminino"
       }
     }
   }

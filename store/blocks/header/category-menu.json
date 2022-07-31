@@ -17,56 +17,133 @@
       "highlight": false,
       "itemProps": {
         "type": "internal",
-        "href": "/eletronicos/",
+        "href": "/roupas/femininas",
         "noFollow": false,
-        "tagTitle": "Categoria 1",
-        "text": "Categoria 1"
+        "tagTitle": "Feminino",
+        "text": "Feminino"
       }
     },
     "blocks": ["vtex.menu@2.x:submenu#category-apparel"]
   },
   "vtex.menu@2.x:submenu#category-apparel": {
     "props": {
-      "width": "auto"
+      "width": "100%"
     },
     "children": ["vtex.menu@2.x:menu#category-apparel"]
+  },
+  "vtex.menu@2.x:submenu#category-home": {
+    "props": {
+      "width": "100%"
+    },
+    "children": ["vtex.menu@2.x:menu#category-home"]
   },
   "vtex.menu@2.x:menu#category-apparel": {
     "props": {
       "orientation": "vertical"
     },
     "children": [
-      "menu-item#category-apparel-clothing",
-      "menu-item#category-apparel-accessories"
+      "menu-item#category-moletons",
+      "menu-item#category-camisas",
+      "menu-item#category-calcas"
     ]
   },
-  "menu-item#category-apparel-clothing": {
+  "vtex.menu@2.x:menu#category-home": {
     "props": {
-      "id": "menu-item-category-apparel-clothing",
+      "orientation": "vertical"
+    },
+    "children": [
+      "menu-item#category-moletonsm",
+      "menu-item#category-camisasm",
+      "menu-item#category-shortsm"
+    ]
+  },
+  "menu-item#category-moletons": {
+    "props": {
+      "id": "menu-item-category-moletons",
       "type": "custom",
       "iconId": null,
       "highlight": false,
       "itemProps": {
         "type": "internal",
-        "href": "/eletronicos/smartphone",
+        "href": "/roupas/femininas/moletom-feminino",
         "noFollow": false,
-        "tagTitle": "Sub Categoria 1",
-        "text": "Sub Categoria 1"
+        "tagTitle": "Moletons",
+        "text": "Moletons"
       }
     }
   },
-  "menu-item#category-apparel-accessories": {
+  "menu-item#category-moletonsm": {
     "props": {
-      "id": "menu-item-category-apparel-accessories",
+      "id": "menu-item-category-moletons",
       "type": "custom",
       "iconId": null,
       "highlight": false,
       "itemProps": {
         "type": "internal",
-        "href": "/eletronicos/informatica",
+        "href": "/roupas/masculinas/moletom-masculino",
         "noFollow": false,
-        "tagTitle": "Sub Categoria 2",
-        "text": "Sub Categoria 2"
+        "tagTitle": "Moletons",
+        "text": "Moletons"
+      }
+    }
+  },
+  "menu-item#category-camisas": {
+    "props": {
+      "id": "menu-item-category-camisas",
+      "type": "custom",
+      "iconId": null,
+      "highlight": false,
+      "itemProps": {
+        "type": "internal",
+        "href": "/roupas/femininas/camisas-femininas",
+        "noFollow": false,
+        "tagTitle": "Camisas",
+        "text": "Camisas"
+      }
+    }
+  },
+  "menu-item#category-calcas": {
+    "props": {
+      "id": "menu-item-category-camisas",
+      "type": "custom",
+      "iconId": null,
+      "highlight": false,
+      "itemProps": {
+        "type": "internal",
+        "href": "/roupas/femininas/camisas-femininas",
+        "noFollow": false,
+        "tagTitle": "Calças",
+        "text": "Calças"
+      }
+    }
+  },
+  "menu-item#category-camisasm": {
+    "props": {
+      "id": "menu-item-category-camisas",
+      "type": "custom",
+      "iconId": null,
+      "highlight": false,
+      "itemProps": {
+        "type": "internal",
+        "href": "/roupas/masculinas/camisas-masculinas",
+        "noFollow": false,
+        "tagTitle": "Camisas",
+        "text": "Camisas"
+      }
+    }
+  },
+  "menu-item#category-shortsm": {
+    "props": {
+      "id": "menu-item-category-camisas",
+      "type": "custom",
+      "iconId": null,
+      "highlight": false,
+      "itemProps": {
+        "type": "internal",
+        "href": "/roupas/masculinas/short",
+        "noFollow": false,
+        "tagTitle": "Shorts",
+        "text": "Shorts"
       }
     }
   },
@@ -78,12 +155,13 @@
       "highlight": false,
       "itemProps": {
         "type": "internal",
-        "href": "/bitsizedtech/eletronicos",
+        "href": "/roupas/masculinas",
         "noFollow": false,
-        "tagTitle": "Categoria 2",
-        "text": "Categoria 2"
+        "tagTitle": "Masculino",
+        "text": "Masculino"
       }
-    }
+    },
+    "blocks": ["vtex.menu@2.x:submenu#category-home"]
   },
   "menu-item#more": {
     "props": {
