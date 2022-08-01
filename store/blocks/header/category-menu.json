@@ -39,22 +39,24 @@
   },
   "vtex.menu@2.x:menu#category-apparel": {
     "props": {
-      "orientation": "vertical"
+      "orientation": "horizontal"
     },
     "children": [
       "menu-item#category-moletons",
       "menu-item#category-camisas",
-      "menu-item#category-calcas"
+      "menu-item#category-calcas",
+      "info-card#feminino"
     ]
   },
   "vtex.menu@2.x:menu#category-home": {
     "props": {
-      "orientation": "vertical"
+      "orientation": "horizontal"
     },
     "children": [
       "menu-item#category-moletonsm",
       "menu-item#category-camisasm",
-      "menu-item#category-shortsm"
+      "menu-item#category-shortsm",
+      "info-card#masculino"
     ]
   },
   "menu-item#category-moletons": {
@@ -228,6 +230,28 @@
         "tagTitle": "Contact Us",
         "text": "Contact Us"
       }
+    }
+  },
+  "info-card#masculino": {
+    "props": {
+      "id": "info-card-home",
+      "isFullModeStyle": false,
+      "textPosition": "center",
+      "imageUrl": "https://imgkub.com/images/2022/08/02/banner-moda-masculina-bitsized1.png",
+      "blockClass": "info-card-masculino",
+      "textAlignment": "center",
+      "callToActionMode": "none"
+    }
+  },
+  "info-card#feminino": {
+    "props": {
+      "id": "info-card-home",
+      "isFullModeStyle": false,
+      "textPosition": "center",
+      "imageUrl": "https://imgkub.com/images/2022/08/02/banner-moda-feminina-bitsized1.png",
+      "blockClass": "info-card-masculino",
+      "textAlignment": "center",
+      "callToActionMode": "none"
     }
   }
 }
