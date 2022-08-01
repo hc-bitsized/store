@@ -15,6 +15,6 @@ export default class OrderClient extends ExternalClient {
         'X-VTEX-API-AppKey': this.appKey,
         'X-VTEX-API-AppToken': this.appToken
       }
-    })
+    });
   }
 }

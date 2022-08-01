@@ -9,15 +9,13 @@ export async function OrderStatusUpdated(
   const orderId = ctx.body.orderId
   const orderData: any = await clients.order.getOrder(orderId)
 
-  const items: OrderItemDto[] = orderData.map((order: { items: any[] }) => {
-    let items = order.items.map(item => {
-      return {
-        productId: item.productId,
-        productName: '',
-        quantity: item.quantity
-      }
-    })
-    return items
+  const items: OrderItemDto[] = orderData.items.map((item: { uniqueId: string, productId: string; name: string, quantity: string }) => {
+    return {
+      orderItemId: item.uniqueId,
+      productId: item.productId,
+      productName: item.name,
+      quantity: item.quantity
+    }
   })
 
   const orderDto: OrderDto = {
@@ -26,9 +24,7 @@ export async function OrderStatusUpdated(
     orderItems: items,
   }
  
-  console.log(orderDto)
-
-  //await clients.awsapi.createOrUpdateOrder(orderDto)
+  await clients.awsapi.createOrUpdateOrder(orderDto)
   
   await next()
 }

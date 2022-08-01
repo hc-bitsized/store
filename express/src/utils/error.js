@@ -1,17 +1,26 @@
-module.exports.internal = function(res, error) {
+module.exports.internal = function(res, msg = 'Erro Interno') {
   return res.status(500).json({
 		error: {
 			codigo: 500,
-			msg: error
+			msg
 		}
 	});
 }
 
-module.exports.notFound = function(res) {
+module.exports.notFound = function(res, msg = 'Recurso não encontrado') {
   return res.status(404).json({
     error: {
       codigo: 404,
-      msg: 'Recurso não encontrado'
+      msg
+    }
+  });
+}
+
+module.exports.badRequest = function(res, msg) {
+  return res.status(400).json({
+    error: {
+      codigo: 400,
+      msg
     }
   });
 }

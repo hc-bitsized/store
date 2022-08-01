@@ -39,6 +39,7 @@ consign({cwd: 'src'})
 	.include('routes')
 	.then('models.js')
 	.then('controllers')
+	.then('services')
 	.then('utils')
 	.into(app);
 
