@@ -39,36 +39,46 @@ function ProductCombinations() {
   const fetchProducts = async() => {
     const productsIds = await fetch('/api/catalog_system/pvt/products/GetProductAndSkuIds')
     const { data } = await productsIds.json()
-    const allProductsData = []
 
-    for(const item in data){
-      const resProduct = await fetch(`/api/catalog_system/pvt/products/productget/${item}`)
-      const {Id, IsActive, Name} = await resProduct.json()
-      
-      const allImagesUrls:string[] = []
-      if(IsActive){
-        const resProductVariation = await fetch(`/api/catalog_system/pub/products/variations/${item}`)
-
-        if(resProductVariation.status == 200){
-          const { skus } = await resProductVariation.json()
-          
-          skus.forEach((item:any) => {
-            allImagesUrls.push(item.image)
+    for(const item in data) {
+      fetch(`/api/catalog_system/pvt/products/productget/${item}`)
+      .then(res => {
+        return res.json()
+      })
+      .then(json => {
+        const {Id, IsActive, Name} = json
+        const allImagesUrls:string[] = []
+        if(IsActive){
+          fetch(`/api/catalog_system/pub/products/variations/${item}`)
+          .then(resVariations => {
+            if(resVariations.ok) {
+              return resVariations.json()
+            }
+            else {
+              return Promise.reject(resVariations);
+            }
           })
-          console.log(allImagesUrls)
-          }
-      }
-      const product: Product = {
-        id: Id,
-        isActive: IsActive,
-        name: Name,
-        suggestions: [],
-        imagesURLs: allImagesUrls
-      }
-      allProductsData.push(product)
+          .then(jsonVariations => {
+            const { skus } = jsonVariations
+            skus.forEach((item:any) => {
+              allImagesUrls.push(item.image)
+            })
+            const product: Product = {
+              id: Id,
+              isActive: IsActive,
+              name: Name,
+              suggestions: [],
+              imagesURLs: allImagesUrls
+            }
+            setProductsData(current => [...current, product])
+            setProductsLoading(false)
+          })
+          .catch((error) => {
+            console.log(error)
+          })
+        }
+      })
     }
-    setProductsData(allProductsData)
-    setProductsLoading(false)
   }
 
   const productToOptions = (productSelect: Product): Option[] => {
