@@ -72,8 +72,15 @@
     {
       "name": "outbound-access",
       "attrs": {
-        "host": "httpstat.us",
-        "path": "*"
+        "host": "bitsized.vtexcommercestable.com.br",
+        "path": "/*"
+      }
+    },
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "52.67.82.162",
+        "path": "/*"
       }
     },
     {

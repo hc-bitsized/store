@@ -15,5 +15,16 @@ module.exports = (sequelize, DataType) => {
     timestamps: true
   });
 
+  Model.associate = (models) => {
+    Model.hasMany(models.OrderItem, {
+      as: 'orderItems',
+      foreignKey: {
+        allowNull: true,
+        field: 'orderId',
+        name: 'orderId'
+      }
+    });
+  };
+
   return Model;
 };

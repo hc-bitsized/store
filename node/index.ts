@@ -54,7 +54,7 @@ export default new Service({
   routes: {
     hcheck: (ctx: any) => {
       ctx.status = 200
-      ctx.body = 'ok'
+      ctx.body = {msg: 'ok'}
     },
   },
 })
