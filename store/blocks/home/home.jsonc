@@ -38,7 +38,11 @@
       },
       "infinite": true,
       "showNavigationArrows": "desktopOnly",
-      "blockClass": "carousel"
+      "blockClass": "carousel",
+      "autoplay": {
+        "timeout": 7000,
+        "stopOnHover": true
+      }
     }
   },
 
