@@ -64,7 +64,9 @@
 .skuSelectorContainer {
   margin: 1rem 0;
 }
-
+.searchIcon{
+  color: #8719a8;
+}
 @media only screen and (min-width: 640px) {
   .newsletter .container {
     padding: 140px;
