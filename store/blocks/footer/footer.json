@@ -109,7 +109,7 @@
   },
   "rich-text#footer-mobile": {
     "props": {
-      "text": "Grupo 4 - Casa Bitsized - Hiring Coders #3",
+      "text": "Casa Bitsized - Hiring Coders #3 - Final",
       "blockClass": "footer"
     }
   }
