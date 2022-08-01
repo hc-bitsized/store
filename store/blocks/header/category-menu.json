@@ -14,7 +14,7 @@
       "id": "menu-item-category-apparel",
       "type": "custom",
       "iconId": null,
-      "highlight": false,
+      "highlight": true,
       "itemProps": {
         "type": "internal",
         "href": "/roupas/femininas",
@@ -39,7 +39,7 @@
   },
   "vtex.menu@2.x:menu#category-apparel": {
     "props": {
-      "orientation": "horizontal"
+      "orientation": "vertical"
     },
     "children": [
       "menu-item#category-moletons",
@@ -50,7 +50,7 @@
   },
   "vtex.menu@2.x:menu#category-home": {
     "props": {
-      "orientation": "horizontal"
+      "orientation": "vertical"
     },
     "children": [
       "menu-item#category-moletonsm",
