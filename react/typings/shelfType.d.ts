@@ -1,8 +1,8 @@
 interface shelfType {
-    linkURL: string,
-    imageURL: string,
-    name: string,
-    price: number,
-    sellingPrice: number,
-    id: string
+    linkURL: string | undefined,
+    imageURL: string | undefined,
+    name: string | undefined,
+    price: number | undefined,
+    sellingPrice: number | undefined,
+    id: string | undefined
 }

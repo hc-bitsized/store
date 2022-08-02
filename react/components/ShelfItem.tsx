@@ -19,7 +19,7 @@ const CSS_HANDLES = [
 const ShelfItem = ({id, linkURL, imageURL, name, price}: shelfType) => {
     const handles = useCssHandles(CSS_HANDLES)
     return(
-        <div key={id} className={`${handles.shelfItem}`}>            
+        <ItemContainer key={id} className={`${handles.shelfItem}`}>            
             <ProductLink href={`${linkURL}`} className={`${handles.shelfLink}`}> 
                 <div className={`${handles.shelfImage}`}>
                     <img src={`${imageURL}`} alt={`${name}`} className={`${handles.shelfImage__img}`} />
@@ -34,7 +34,7 @@ const ShelfItem = ({id, linkURL, imageURL, name, price}: shelfType) => {
                     </ProductPrice>
                 </div> 
             </ProductLink>            
-        </div>        
+        </ItemContainer>        
     )   
 
 
@@ -68,6 +68,12 @@ const ProductLink = styled.a`
 `
 const ProductPrice = styled.p`
     color: black;
+`
+const ItemContainer = styled.div`
+    padding: 20px;
+    max-width:300px;
+    min-width: 300px;    
+    height: auto;
 `
 
 
