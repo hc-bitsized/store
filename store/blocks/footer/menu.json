@@ -6,7 +6,7 @@
     "children": [
       "menu-item#news",
       "menu-item#sale",
-      "menu-item#personalization"
+      "menu-item#combinacoes"
     ]
   },
   "menu-item#news": {
@@ -17,10 +17,11 @@
       "highlight": false,
       "itemProps": {
         "type": "internal",
-        "href": "#",
+        "href": "/store",
         "noFollow": false,
         "tagTitle": "Novidades",
-        "text": "Novidades"
+        "text": "Novidades",
+        "orderBy": "OrderByReleaseDateDESC"
       }
     }
   },
@@ -34,14 +35,14 @@
         "type": "internal",
         "href": "#",
         "noFollow": false,
-        "tagTitle": "Oferta",
-        "text": "Oferta"
+        "tagTitle": "Ofertas",
+        "text": "Ofertas"
       }
     }
   },
-  "menu-item#personalization": {
+  "menu-item#combinacoes": {
     "props": {
-      "id": "menu-item-personalization",
+      "id": "menu-item-combinacoes",
       "type": "custom",
       "iconId": null,
       "highlight": false,
@@ -49,8 +50,8 @@
         "type": "internal",
         "href": "#",
         "noFollow": false,
-        "tagTitle": "Personalização",
-        "text": "Personalização"
+        "tagTitle": "Combinações",
+        "text": "Combinações"
       }
     }
   },
@@ -229,8 +230,8 @@
   "menu-item#sale-mobile": {
     "props": {
       "itemProps": {
-        "tagTitle": "Oferta",
-        "text": "Oferta"
+        "tagTitle": "Ofertas",
+        "text": "Ofertas"
       }
     },
     "blocks": ["vtex.menu@2.x:submenu.accordion#sale"]
@@ -242,12 +243,7 @@
   "vtex.menu@2.x:menu#footer-sale-mobile": {
     "props": {
       "orientation": "vertical"
-    },
-    "children": [
-      "menu-item#camisas-masculinas",
-      "menu-item#moletons-masculinos",
-      "menu-item#Shorts-masculinos"
-    ]
+    }
   },
 
   "menu-item#roupas-femininas": {
