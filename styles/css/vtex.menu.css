@@ -6,11 +6,11 @@
     transition: 800ms;
 }
 
-.menuContainer .styledLinkContent:hover{
-    color: #8955ff;
+.menuItem:hover{
+    background-color: rgba(135, 25, 168, 0.2);
+    border-radius: 0.3rem;
+    transition: 800ms;
 }
-
 .submenu .styledLinkContent:hover{
-    color: #8955ff;
     transition: 800ms;
 }
