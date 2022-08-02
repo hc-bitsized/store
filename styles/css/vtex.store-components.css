@@ -5,11 +5,10 @@
   font-size: 12px;
   text-decoration: underline;
 }
-
 .infoCardContainer--info-card-home {
   max-width: 1520px;
   margin: 0 auto;
-  background-color: #e6f1e6;
+  background-color: white;
   padding: 0px;
 }
 
