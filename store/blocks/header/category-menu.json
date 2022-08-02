@@ -23,19 +23,25 @@
         "text": "Feminino"
       }
     },
-    "blocks": ["vtex.menu@2.x:submenu#category-apparel"]
+    "blocks": [
+      "vtex.menu@2.x:submenu#category-apparel"
+    ]
   },
   "vtex.menu@2.x:submenu#category-apparel": {
     "props": {
       "width": "100%"
     },
-    "children": ["vtex.menu@2.x:menu#category-apparel"]
+    "children": [
+      "vtex.menu@2.x:menu#category-apparel"
+    ]
   },
   "vtex.menu@2.x:submenu#category-home": {
     "props": {
       "width": "100%"
     },
-    "children": ["vtex.menu@2.x:menu#category-home"]
+    "children": [
+      "vtex.menu@2.x:menu#category-home"
+    ]
   },
   "vtex.menu@2.x:menu#category-apparel": {
     "props": {
@@ -163,7 +169,9 @@
         "text": "Masculino"
       }
     },
-    "blocks": ["vtex.menu@2.x:submenu#category-home"]
+    "blocks": [
+      "vtex.menu@2.x:submenu#category-home"
+    ]
   },
   "menu-item#more": {
     "props": {
@@ -179,28 +187,43 @@
         "text": "Mais"
       }
     },
-    "blocks": ["vtex.menu@2.x:submenu#more"]
+    "blocks": [
+      "vtex.menu@2.x:submenu#more"
+    ]
   },
   "vtex.menu@2.x:submenu#more": {
     "props": {
       "width": "100%"
     },
-    "children": ["flex-layout.row#menu-more"]
+    "children": [
+      "flex-layout.row#menu-more"
+    ]
   },
   "flex-layout.row#menu-more": {
-    "children": ["flex-layout.col#menu-more-1", "flex-layout.col#menu-more-2"]
+    "children": [
+      "flex-layout.col#menu-more-1",
+      "flex-layout.col#menu-more-2"
+    ]
   },
   "flex-layout.col#menu-more-1": {
-    "children": ["vtex.menu@2.x:menu#more"]
+    "children": [
+      "vtex.menu@2.x:menu#more"
+    ]
   },
   "flex-layout.col#menu-more-2": {
-    "children": ["info-card#home"]
+    "children": [
+      "info-card#home"
+    ]
   },
   "vtex.menu@2.x:menu#more": {
     "props": {
       "orientation": "vertical"
     },
-    "children": ["menu-item#about-us"]
+    "children": [
+      "menu-item#meias",
+      "menu-item#variedades",
+      "menu-item#about-us"
+    ]
   },
   "menu-item#about-us": {
     "props": {
