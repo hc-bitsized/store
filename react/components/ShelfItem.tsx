@@ -1,51 +1,43 @@
 import React from 'react';
-import { useCssHandles } from "vtex.css-handles"
+import { useCssHandles } from "vtex.css-handles";
+import styled from 'styled-components'
 
 
 import  { formatPrice } from '../helpers/Helper'
 
 const CSS_HANDLES = [
-    'container',
-    'shelfTitle',
     'shelfItem',
     'shelfLink',
-    'shelfInfo',
     'ShelfImage',
     'shelfImage__img',
-    'hover',
-    'hoverText',
     'shelfProductName',
     'shelfPrice',
     'shelfSellingPrice',
     'shelfBestPrice',
-    'shelfContent'
 ]
 
-const ShelfItem = ({id, linkURL, imageURL, name, price, sellingPrice}: shelfType) => {
+const ShelfItem = ({id, linkURL, imageURL, name, price}: shelfType) => {
     const handles = useCssHandles(CSS_HANDLES)
     return(
-        <div key={id} className={`${handles.shelfItem}`}>
-            <a href={`${linkURL}`} className={`${handles.shelfLink}`}> 
+        <div key={id} className={`${handles.shelfItem}`}>            
+            <ProductLink href={`${linkURL}`} className={`${handles.shelfLink}`}> 
                 <div className={`${handles.shelfImage}`}>
                     <img src={`${imageURL}`} alt={`${name}`} className={`${handles.shelfImage__img}`} />
                 </div>
-                <h2 className={`${handles.shelfProductName}`}>{`${name}`}</h2>
+                <ProductName className={`${handles.shelfProductName}`}>{`${name}`}</ProductName>
                 <div className={`${handles.shelfPrice}`}>
-                    <p className={`${handles.shelfSellingPrice}`}> 
+                    {/* <p className={`${handles.shelfSellingPrice}`}> 
                         {formatPrice(sellingPrice)}
-                    </p>
-                    <p className={`${handles.shelfBestPrice}`}>
+                    </p> */}
+                    <ProductPrice className={`${handles.shelfBestPrice}`}>
                         {formatPrice(price)}
-                    </p>
+                    </ProductPrice>
                 </div> 
-            </a>
-            <a>
-                <div>
-                    <h1>+</h1>
-                </div>
-            </a>
+            </ProductLink>            
         </div>        
-    )
+    )   
+
+
     // return(
     //     <div key={id}>
     //         <a href={`${linkURL}`} > 
@@ -65,5 +57,18 @@ const ShelfItem = ({id, linkURL, imageURL, name, price, sellingPrice}: shelfType
     //     </div>
     // )
 }
+
+// CSS styles
+const ProductName = styled.h4`    
+    color: black;
+`
+
+const ProductLink = styled.a`
+    text-decoration: none;
+`
+const ProductPrice = styled.p`
+    color: black;
+`
+
 
 export default ShelfItem;

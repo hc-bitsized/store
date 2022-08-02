@@ -1,0 +1,16 @@
+.submenuWrapper--isOpen{
+    background-color: white;
+    transition: 800ms;
+}
+.styledLinkContent{
+    transition: 800ms;
+}
+
+.menuContainer .styledLinkContent:hover{
+    color: #8955ff;
+}
+
+.submenu .styledLinkContent:hover{
+    color: #8955ff;
+    transition: 800ms;
+}

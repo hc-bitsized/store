@@ -10,7 +10,8 @@
             "desktop": 5,
             "tablet": 3,
             "phone": 2
-          }
+          },
+          "blockClass": "marcas"
         }
       },
       "image#brand1":{

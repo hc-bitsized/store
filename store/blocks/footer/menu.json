@@ -55,20 +55,20 @@
     }
   },
 
-  "vtex.menu@2.x:menu#footer-decoration": {
+  "vtex.menu@2.x:menu#footer-masculino": {
     "props": {
       "orientation": "vertical"
     },
     "children": [
-      "menu-item#smartphones",
-      "menu-item#videogames",
-      "menu-item#tvs"
+      "menu-item#camisas-masculinas",
+      "menu-item#moletons-masculinos",
+      "menu-item#Shorts-masculinos"
     ]
   },
 
-  "menu-item#smartphones": {
+  "menu-item#camisas-masculinas": {
     "props": {
-      "id": "menu-item-smartphones",
+      "id": "menu-item-camisas-masculinas",
       "type": "custom",
       "iconId": null,
       "highlight": false,
@@ -82,9 +82,9 @@
     }
   },
 
-  "menu-item#videogames": {
+  "menu-item#moletons-masculinos": {
     "props": {
-      "id": "menu-item-videogames",
+      "id": "menu-item-moletons-masculinos",
       "type": "custom",
       "iconId": null,
       "highlight": false,
@@ -98,9 +98,9 @@
     }
   },
 
-  "menu-item#tvs": {
+  "menu-item#Shorts-masculinos": {
     "props": {
-      "id": "menu-item-tvs",
+      "id": "menu-item-Shorts-masculinos",
       "type": "custom",
       "iconId": null,
       "highlight": false,
@@ -114,16 +114,16 @@
     }
   },
 
-  "vtex.menu@2.x:menu#footer-bags": {
+  "vtex.menu@2.x:menu#footer-meias": {
     "props": {
       "orientation": "vertical"
     },
-    "children": ["menu-item#bags", "menu-item#backpacks"]
+    "children": ["menu-item#meias", "menu-item#variedades"]
   },
 
-  "menu-item#bags": {
+  "menu-item#meias": {
     "props": {
-      "id": "menu-item-bags",
+      "id": "menu-item-meias",
       "type": "custom",
       "iconId": null,
       "highlight": false,
@@ -137,9 +137,9 @@
     }
   },
 
-  "menu-item#backpacks": {
+  "menu-item#variedades": {
     "props": {
-      "id": "menu-item-backpacks",
+      "id": "menu-item-variedades",
       "type": "custom",
       "iconId": null,
       "highlight": false,
@@ -153,14 +153,14 @@
     }
   },
 
-  "vtex.menu@2.x:menu#footer-clothing": {
+  "vtex.menu@2.x:menu#footer-roupas-femininas": {
     "props": {
       "orientation": "vertical"
     },
     "children": [
-      "menu-item#clothing",
+      "menu-item#roupas-femininas",
       "menu-item#shorts",
-      "menu-item#tank-tops"
+      "menu-item#calcas-femininas"
     ]
   },
 
@@ -169,15 +169,15 @@
       "orientation": "vertical"
     },
     "children": [
-      "menu-item#clothing-mobile",
-      "menu-item#decoration-mobile",
+      "menu-item#roupas-femininas-mobile",
+      "menu-item#masculino-mobile",
       "menu-item#sale-mobile"
     ]
   },
 
-  "menu-item#clothing-mobile": {
+  "menu-item#roupas-femininas-mobile": {
     "props": {
-      "id": "menu-item-category-clothing",
+      "id": "menu-item-category-roupas-femininas",
       "type": "custom",
       "iconId": null,
       "highlight": false,
@@ -189,40 +189,40 @@
         "text": "Feminino"
       }
     },
-    "blocks": ["vtex.menu@2.x:submenu.accordion#clothing"]
+    "blocks": ["vtex.menu@2.x:submenu.accordion#roupas-femininas"]
   },
-  "vtex.menu@2.x:submenu.accordion#clothing": {
-    "children": ["vtex.menu@2.x:menu#clothing-accordion"]
+  "vtex.menu@2.x:submenu.accordion#roupas-femininas": {
+    "children": ["vtex.menu@2.x:menu#roupas-femininas-accordion"]
   },
 
-  "vtex.menu@2.x:menu#clothing-accordion": {
+  "vtex.menu@2.x:menu#roupas-femininas-accordion": {
     "props": {
       "orientation": "vertical"
     },
-    "children": ["menu-item#shorts", "menu-item#tank-tops", "menu-item#camisas"]
+    "children": ["menu-item#shorts", "menu-item#calcas-femininas", "menu-item#camisas"]
   },
 
-  "menu-item#decoration-mobile": {
+  "menu-item#masculino-mobile": {
     "props": {
       "itemProps": {
         "tagTitle": "Masculino",
         "text": "Masculino"
       }
     },
-    "blocks": ["vtex.menu@2.x:submenu.accordion#decoration"]
+    "blocks": ["vtex.menu@2.x:submenu.accordion#masculino"]
   },
-  "vtex.menu@2.x:submenu.accordion#decoration": {
-    "children": ["vtex.menu@2.x:menu#footer-decoration-mobile"]
+  "vtex.menu@2.x:submenu.accordion#masculino": {
+    "children": ["vtex.menu@2.x:menu#footer-masculino-mobile"]
   },
 
-  "vtex.menu@2.x:menu#footer-decoration-mobile": {
+  "vtex.menu@2.x:menu#footer-masculino-mobile": {
     "props": {
       "orientation": "vertical"
     },
     "children": [
-      "menu-item#smartphones",
-      "menu-item#videogames",
-      "menu-item#tvs"
+      "menu-item#camisas-masculinas",
+      "menu-item#moletons-masculinos",
+      "menu-item#Shorts-masculinos"
     ]
   },
 
@@ -244,15 +244,15 @@
       "orientation": "vertical"
     },
     "children": [
-      "menu-item#smartphones",
-      "menu-item#videogames",
-      "menu-item#tvs"
+      "menu-item#camisas-masculinas",
+      "menu-item#moletons-masculinos",
+      "menu-item#Shorts-masculinos"
     ]
   },
 
-  "menu-item#clothing": {
+  "menu-item#roupas-femininas": {
     "props": {
-      "id": "menu-item-category-clothing",
+      "id": "menu-item-category-roupas-femininas",
       "type": "custom",
       "iconId": null,
       "highlight": false,
@@ -282,9 +282,9 @@
     }
   },
 
-  "menu-item#tank-tops": {
+  "menu-item#calcas-femininas": {
     "props": {
-      "id": "menu-item-tank-tops",
+      "id": "menu-item-calcas-femininas",
       "type": "custom",
       "iconId": null,
       "highlight": false,
