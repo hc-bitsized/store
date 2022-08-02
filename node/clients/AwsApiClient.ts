@@ -4,7 +4,7 @@ import { OrderDto } from '../dtos/OrderDto';
 
 export default class AwsApiClient extends ExternalClient {
   constructor(context: IOContext, options?: InstanceOptions) {
-    super('http://52.67.82.162/api', context, options)
+    super('https://bitsized.socialfitness.com.br/api', context, options)
   }
 
   public async createOrUpdateOrder(orderDto: OrderDto): Promise<void> {

@@ -79,7 +79,7 @@
     {
       "name": "outbound-access",
       "attrs": {
-        "host": "52.67.82.162",
+        "host": "bitsized.socialfitness.com.br",
         "path": "/*"
       }
     },

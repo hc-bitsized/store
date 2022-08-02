@@ -10,7 +10,6 @@ module.exports.listPreSuggestions = async (app, req, res) => {
   }
 
   const orders = await app.models.Order.findAll({
-    where: {orderStatus: {[Op.ne]: 'canceled'}},
     include: [
       {
         model: app.models.OrderItem,
