@@ -4,65 +4,95 @@
       "experimentalOptimizeRendering": true
     },
     "children": [
-      "menu-item#category-apparel",
-      "menu-item#category-home",
+      "menu-item#feminino",
+      "menu-item#masculino",
       "menu-item#more"
     ]
   },
-  "menu-item#category-apparel": {
+  "menu-item#feminino": {
     "props": {
-      "id": "menu-item-category-apparel",
+      "id": "menu-item-custom-sale",
       "type": "custom",
       "iconId": null,
-      "highlight": true,
+      "highlight": false,
       "itemProps": {
         "type": "internal",
-        "href": "/roupas/femininas",
-        "noFollow": false,
+        "href": "#",
+        "noFollow": true,
         "tagTitle": "Feminino",
         "text": "Feminino"
       }
     },
     "blocks": [
-      "vtex.menu@2.x:submenu#category-apparel"
+      "vtex.menu@2.x:submenu#feminino"
     ]
   },
-  "vtex.menu@2.x:submenu#category-apparel": {
+  "vtex.menu@2.x:submenu#feminino": {
     "props": {
       "width": "100%"
     },
     "children": [
-      "vtex.menu@2.x:menu#category-apparel"
+      "flex-layout.row#menu-feminino"
     ]
   },
-  "vtex.menu@2.x:submenu#category-home": {
-    "props": {
-      "width": "100%"
-    },
+  "flex-layout.row#menu-feminino": {
     "children": [
-      "vtex.menu@2.x:menu#category-home"
+      "flex-layout.col#menu-feminino-1",
+      "flex-layout.col#menu-feminino-2"
     ]
   },
-  "vtex.menu@2.x:menu#category-apparel": {
+  "flex-layout.col#menu-feminino-1": {
+    "children": [
+      "vtex.menu@2.x:menu#feminino"
+    ]
+  },
+  "flex-layout.col#menu-feminino-2": {
+    "children": [
+      "info-card#feminino"
+    ]
+  },
+  "vtex.menu@2.x:menu#feminino": {
     "props": {
       "orientation": "vertical"
     },
     "children": [
       "menu-item#category-moletons",
       "menu-item#category-camisas",
-      "menu-item#category-calcas",
-      "info-card#feminino"
+      "menu-item#category-calcas"
     ]
   },
-  "vtex.menu@2.x:menu#category-home": {
+  "vtex.menu@2.x:submenu#masculino": {
+    "props": {
+      "width": "100%"
+    },
+    "children": [
+      "flex-layout.row#menu-masculino"
+    ]
+  },
+  "flex-layout.row#menu-masculino": {
+    "children": [
+      "flex-layout.col#menu-masculino-1",
+      "flex-layout.col#menu-masculino-2"
+    ]
+  },
+  "flex-layout.col#menu-masculino-1": {
+    "children": [
+      "vtex.menu@2.x:menu#masculino"
+    ]
+  },
+  "flex-layout.col#menu-masculino-2": {
+    "children": [
+      "info-card#masculino"
+    ]
+  },
+  "vtex.menu@2.x:menu#masculino": {
     "props": {
       "orientation": "vertical"
     },
     "children": [
       "menu-item#category-moletonsm",
       "menu-item#category-camisasm",
-      "menu-item#category-shortsm",
-      "info-card#masculino"
+      "menu-item#category-shortsm"
     ]
   },
   "menu-item#category-moletons": {
@@ -155,22 +185,22 @@
       }
     }
   },
-  "menu-item#category-home": {
+  "menu-item#masculino": {
     "props": {
-      "id": "menu-item-category-home",
+      "id": "menu-item-custom-sale",
       "type": "custom",
       "iconId": null,
       "highlight": false,
       "itemProps": {
         "type": "internal",
-        "href": "/roupas/masculinas",
-        "noFollow": false,
+        "href": "#",
+        "noFollow": true,
         "tagTitle": "Masculino",
         "text": "Masculino"
       }
     },
     "blocks": [
-      "vtex.menu@2.x:submenu#category-home"
+      "vtex.menu@2.x:submenu#masculino"
     ]
   },
   "menu-item#more": {
@@ -261,7 +291,7 @@
       "isFullModeStyle": false,
       "textPosition": "center",
       "imageUrl": "https://imgkub.com/images/2022/08/02/banner-moda-masculina-bitsized1.png",
-      "blockClass": "info-card-masculino",
+      "blockClass": "info-card-home",
       "textAlignment": "center",
       "callToActionMode": "none"
     }
@@ -270,9 +300,9 @@
     "props": {
       "id": "info-card-home",
       "isFullModeStyle": false,
-      "textPosition": "center",
+      "textPosition": "left",
       "imageUrl": "https://imgkub.com/images/2022/08/02/banner-moda-feminina-bitsized1.png",
-      "blockClass": "info-card-masculino",
+      "blockClass": "info-card-home",
       "textAlignment": "center",
       "callToActionMode": "none"
     }
