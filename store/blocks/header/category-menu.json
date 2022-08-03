@@ -17,7 +17,7 @@
       "highlight": false,
       "itemProps": {
         "type": "internal",
-        "href": "#",
+        "href": "/roupas/femininas",
         "noFollow": true,
         "tagTitle": "Feminino",
         "text": "Feminino"
@@ -142,13 +142,13 @@
   },
   "menu-item#category-calcas": {
     "props": {
-      "id": "menu-item-category-camisas",
+      "id": "menu-item-category-calcas",
       "type": "custom",
       "iconId": null,
       "highlight": false,
       "itemProps": {
         "type": "internal",
-        "href": "/roupas/femininas/camisas-femininas",
+        "href": "/roupas/femininas/calcas-femininas",
         "noFollow": false,
         "tagTitle": "Calças",
         "text": "Calças"
@@ -193,7 +193,7 @@
       "highlight": false,
       "itemProps": {
         "type": "internal",
-        "href": "#",
+        "href": "/roupas/masculinas",
         "noFollow": true,
         "tagTitle": "Masculino",
         "text": "Masculino"
