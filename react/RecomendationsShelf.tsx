@@ -114,7 +114,7 @@ const RecomendationsShelf = () => {
             <>
                 {loading ? 
                     <div>
-                        <Loading>Desculpe, ainda não temos sujestões para este produto</Loading>
+                        <Loading>Desculpe, ainda não temos sugestões para este produto</Loading>
                         <Loading>Você pode ser o primeiro a comprar algo junto com ele haha</Loading>
                     </div>
 
@@ -124,16 +124,17 @@ const RecomendationsShelf = () => {
         )
     } else {        
         return (
-            <Container className={`${handles.containerShelf}`}>
+            <Container className={`${handles.containerShelf} container`}>
                 <Title>
-                    <h1>Compre Junto</h1>
+                    <h2>Compre Junto</h2>
                 </Title>
                 {arrayProducts && loading ? 
-                    <ItemContainer> 
+                    <ItemContainer className='item-container'> 
                         {arrayProducts.map((product: any, index: any) => (                         
                             <div>
                                 {index === 0 ? 
-                                    <PlusImage> 
+                                    <PlusImage className='plus-image'>
+                                        <ContainerProduct className='container-product'>
                                         <ShelfItem 
                                             linkURL={product.link} 
                                             id={product.productId}
@@ -141,11 +142,13 @@ const RecomendationsShelf = () => {
                                             name={product.productName} 
                                             sellingPrice={product.items[0].sellers[0].commertialOffer.ListPrice}
                                             price={product.items[0].sellers[0].commertialOffer.Price}  
-                                        /> 
+                                        />
+                                        </ContainerProduct>
                                     </PlusImage>                            
                                     : index === (arrayProducts.length - 1) ?
-                                    <PlusImage>
-                                        <div><BigText>+</BigText></div>
+                                    <PlusImage className='plus-image'>
+                                        <div><BigText className='big-text'>+</BigText></div>
+                                        <ContainerProduct className='container-product'>
                                         <ShelfItem 
                                             linkURL={product.link} 
                                             id={product.productId}
@@ -153,9 +156,10 @@ const RecomendationsShelf = () => {
                                             name={product.productName} 
                                             sellingPrice={product.items[0].sellers[0].commertialOffer.ListPrice}
                                             price={product.items[0].sellers[0].commertialOffer.Price}  
-                                        /> 
-                                        <div><BigText>=</BigText></div>
-                                        <TotalPrice>
+                                        />
+                                        </ContainerProduct>
+                                        <div><BigText className='big-text'>=</BigText></div>
+                                        <TotalPrice className='total-price'>
                                             <BigText>Leve os 3 itens</BigText>
                                             <SmallText>E economize</SmallText>
                                             <BigText>{formatPrice(priceSum)}</BigText>
@@ -165,9 +169,10 @@ const RecomendationsShelf = () => {
                                         </TotalPrice>
                                     </PlusImage> 
                                 : 
-                                    <PlusImage>
-                                        <div><BigText>+</BigText></div>
-                                        <ShelfItem 
+                                    <PlusImage className='plus-image'>
+                                        <div><BigText className='big-text'>+</BigText></div>
+                                        <ContainerProduct className='container-product'>
+                                        <ShelfItem
                                             linkURL={product.link} 
                                             id={product.productId}
                                             imageURL={product.items[0].images[0].imageUrl} 
@@ -175,7 +180,7 @@ const RecomendationsShelf = () => {
                                             sellingPrice={product.items[0].sellers[0].commertialOffer.ListPrice}
                                             price={product.items[0].sellers[0].commertialOffer.Price}  
                                         /> 
-                                        
+                                        </ContainerProduct>
                                     </PlusImage>
                                 }
                             
@@ -201,7 +206,7 @@ const Title = styled.div`
     color: #3f3f40;
 `
 
-const BigText = styled.h1`
+const BigText = styled.h2`
     color: #3f3f40;
 `
 const SmallText = styled.p`
@@ -210,11 +215,127 @@ const SmallText = styled.p`
 
 const Container = styled.div` 
     max-width: 1280px;    
-    margin: 0 auto;  
+    margin: 0 auto;
+
+    @media(max-width: 1280px) {
+    margin: 0 auto;
+    .container-product{
+        width: 250px;
+    }
+    .container-product img{
+        width: 200px;
+    }
+    .container-product h4{
+        font-size:15px;
+    }
+    
+  } 
+  @media(max-width: 1129px) {
+    max-width: 1129px;
+    margin: 0 auto;
+    .container-product{
+        width: 250px;
+    }
+    .container-product img{
+        width: 200px;
+    }
+    .container-product h4{
+        font-size:15px;
+    }
+    
+  } 
+  @media(max-width: 1054px) {
+    margin: 0 auto;
+    .container-product{
+        width: 200px;
+    }
+    .container-product img{
+        width: 150px;
+    }
+    .container-product h4{
+        font-size:15px;
+    }
+    
+  } 
+  @media(max-width: 900px) {
+    margin: 0 auto;
+    .container-product{
+        width: 170px;
+    }
+    .container-product img{
+        width: 130px;
+    }
+    .container-product h4{
+        font-size:15px;
+    }
+    
+  } 
+  @media(max-width: 830px) {
+    margin: 0 auto;
+    .container-product{
+        width: 150px;
+    }
+    .container-product img{
+        width: 110px;
+    }
+    .container-product h4{
+        font-size:15px;
+    }
+    
+  } 
+    @media(max-width: 768px) {
+    .container-product{
+        width: 130px;
+    }
+    .container-product img{
+        width: 90px;
+    }
+    .container-product h4{
+        font-size:15px;
+    }
+    
+  } 
+  @media(max-width: 650px) {
+    .item-container{
+    flex-direction: column;
+    }
+    .plus-image{
+        flex-direction: column;
+    }
+    .container-product{
+        width: 300px;
+    }
+    .container-product img{
+        width: 250px;
+    }
+    .container-product h4{
+        font-size:15px;
+    }
+    
+  }
+    @media(max-width: 425px) {
+    .item-container{
+    flex-direction: column;
+    }
+    .plus-image{
+        flex-direction: column;
+    }
+    .container-product{
+        width: 250px;
+    }
+    .container-product img{
+        width: 200px;
+    }
+    .container-product h4{
+        font-size:15px;
+    }
+    
+  } 
 `
 const ItemContainer = styled.div`
     display: flex;
     align-items: center;
+
 `
 const PlusImage = styled.div`
     display: flex;
@@ -222,12 +343,17 @@ const PlusImage = styled.div`
     
 `
 const TotalPrice = styled.div`
-    padding: 50px;
-    size: 400px;
+    padding: 10px;
+    size: 345px;
     text-align: center;
 `
+const ContainerProduct = styled.div`
+    img{
+        width:300px;
+    }
+`
 const CartButton = styled.div`
-    display: inline-block;
+    display: flex;
     padding: 6px 12px;
     margin-bottom: 0;
     font-size: 20px;
@@ -256,6 +382,17 @@ const CartButton = styled.div`
     &:hover.button {
         background-color: #8955ff
     } 
+    @media(max-width: 1129px) {
+        font-size: 15px;
+    }
+    
+    @media(max-width: 768px) {
+        font-size: 12px;
+    }
+    @media(max-width: 650px) {
+        font-size: 20px;
+    }
+    
 `
 
 //#8719a8 #8955ff

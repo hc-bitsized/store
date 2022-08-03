@@ -1,3 +1,8 @@
+@media (max-width: 768px) {
+  .buttonText--button-cart{
+    font-size: 0.8rem;
+  }
+}
 @media (max-width: 413px) {
     .buttonText--button-cart{
       font-size: 0.8rem;
