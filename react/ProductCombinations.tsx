@@ -1,35 +1,44 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { 
         Layout,
         PageBlock,
         Button,
         InputSearch,
         Spinner,
-        ButtonPlain,
         EXPERIMENTAL_Select as Select
        } from 'vtex.styleguide'
+import Suggestion from './components/Suggestion'
 
-interface Product {
-  id: string
-  isActive: boolean
-  name: string
-  suggestions: Option[]
-  imagesURLs: string[]
+interface SuggestionData {
+  suggestionId: number
+  suggestedId: number
 }
 
-interface Option {
-  value: string
-  label: string
+interface PreSuggestionData {
+  preSuggestionId:number
+  countOrders:number
+}
+interface Product {
+  id: number
+  isActive: boolean
+  name: string
+  suggestion: Product | null
+  preSuggestions: PreSuggestionData[]
+  savedSuggestions: SuggestionData[]
+  imageURL: string
 }
 
 function ProductCombinations() {
   const [productsData, setProductsData] = useState<Array<Product>>([])
   const [productsLoading, setProductsLoading] = useState<boolean>(true)
-  const [searchedProductsIds, setSearchedProductsIds] = useState<string[]>([])
-  const [combinations, setCombinations] = useState<Array<string>>([])
+  const [searchedProductsIds, setSearchedProductsIds] = useState<number[]>([])
 
   const [searchQuery, setSearchQuery] = useState<string>('')
   const [searchNotFoundMessage, setSearchNotFoundMessage] = useState<string>('')
+
+  const searchInputRef = useRef()
+
+  const API = 'https://bitsized.socialfitness.com.br/api'
 
   useEffect(() => {
     fetchProducts()
@@ -37,100 +46,214 @@ function ProductCombinations() {
   }, [])
 
   const fetchProducts = async() => {
-    const productsIds = await fetch('/api/catalog_system/pvt/products/GetProductAndSkuIds')
+    const productsIds = await fetch('/api/catalog_system/pvt/products/GetProductAndSkuIds?_to=50')
     const { data } = await productsIds.json()
-
-    for(const item in data) {
-      fetch(`/api/catalog_system/pvt/products/productget/${item}`)
-      .then(res => {
-        return res.json()
-      })
+    const requests:any = []
+    Object.keys(data).forEach((product:any) => {
+      requests.push(fetch(`/api/catalog_system/pvt/products/productget/${product}`))
+    })
+    Promise.all(requests)
+    .then((res:any) => {
+      Promise.all(res.map((r:any) => r.json()))
       .then(json => {
-        const {Id, IsActive, Name} = json
-        const allImagesUrls:string[] = []
-        if(IsActive){
-          fetch(`/api/catalog_system/pub/products/variations/${item}`)
-          .then(resVariations => {
-            if(resVariations.ok) {
-              return resVariations.json()
-            }
-            else {
-              return Promise.reject(resVariations);
-            }
-          })
-          .then(jsonVariations => {
-            const { skus } = jsonVariations
-            skus.forEach((item:any) => {
-              allImagesUrls.push(item.image)
+        json.forEach((item:any) => { 
+          const {Id, IsActive, Name} = item
+          let imageUrl:string
+          const allPreSuggestions:PreSuggestionData[] = []
+          const allSuggestions:SuggestionData[] = []
+          if(IsActive){
+            fetch(`/api/catalog_system/pub/products/variations/${Id}`)
+            .then(resVariations => {
+              if(resVariations.ok) {
+                return resVariations.json()
+              }
+              else {
+                return Promise.reject(resVariations);
+              }
             })
-            const product: Product = {
-              id: Id,
-              isActive: IsActive,
-              name: Name,
-              suggestions: [],
-              imagesURLs: allImagesUrls
-            }
-            setProductsData(current => [...current, product])
-            setProductsLoading(false)
-          })
-          .catch((error) => {
-            console.log(error)
-          })
-        }
+            .then(jsonVariations => {
+              const { skus } = jsonVariations
+              imageUrl = skus[0].image
+              // skus.forEach((item:any) => {
+              //   allImagesUrls.push(item.image)
+              // })
+            })
+
+            fetch(`${API}/pre-suggestion?productId=${Id}`)
+            .then(resPreSuggestions => {
+              return resPreSuggestions.json()
+            })
+            .then(jsonPreSuggestions => {
+              const { preSuggestions } = jsonPreSuggestions.data
+              preSuggestions.forEach((item:any) => {
+                const preSuggestion: PreSuggestionData = {
+                  preSuggestionId:item.productId,
+                  countOrders:item.countOrders
+                }
+                allPreSuggestions.push(preSuggestion)
+              })
+            })
+
+            fetch(`${API}/suggestion?productId=${Id}`)
+            .then(resSuggestions => {
+              return resSuggestions.json()
+            })
+            .then(jsonSuggestion => {
+              const { data } = jsonSuggestion
+              data.forEach((item:any) => {    
+                if(item.deleted == false){
+                  const suggestion: SuggestionData = {
+                    suggestionId: item.suggestionId,
+                    suggestedId: item.suggestedId
+                  }
+                  allSuggestions.push(suggestion)
+                }
+              })
+              const product: Product = {
+                id: Id,
+                isActive: IsActive,
+                name: Name,
+                suggestion: null,
+                preSuggestions: allPreSuggestions,
+                savedSuggestions: allSuggestions,
+                imageURL: imageUrl
+              }
+              setProductsData(current => [...current, product])
+              setProductsLoading(false)
+            })
+          }
+        })
       })
-    }
+    })
   }
 
-  const productToOptions = (productSelect: Product): Option[] => {
-    const options: Option[] = []
-    productsData.forEach((product) => {
-      if(product.isActive && product !== productSelect){
-        const newOption: Option = {
-          value: product.id,
-          label: product.name
+  const getProductById = (id:number):Product => {
+    const foundProd = productsData.find(prod => prod.id == id)
+    return foundProd!
+  }
+
+  const productToOptions = (productSelect: Product):any => {
+    const others:any[] = []
+    const preSuggestions:any[] = []
+    const preSuggestedProducts: Product[] = []
+    productSelect.preSuggestions.forEach(item => {
+      const product = getProductById(item.preSuggestionId)
+      if(product){
+        const newOption = {
+          value: product,
+          label: `${product.name} (comprado junto ${item.countOrders} ${item.countOrders> 1 ? "vezes" : "vez"})`
         }
-        options.push(newOption)
+        preSuggestions.push(newOption)
+        preSuggestedProducts.push(product)
       }
     })
-    return options
+    productsData.forEach((product) => {
+      if(product.isActive && product !== productSelect && !preSuggestedProducts.includes(product)){
+        const newOption = {
+          value: product,
+          label: product.name
+        }
+        others.push(newOption)
+      }
+    })
+
+    if(preSuggestedProducts.length > 0)
+      return [
+        {
+          label:"Frequentemente comprados juntos",
+          options: preSuggestions
+        },
+        {
+          label:"Outros produtos",
+          options: others
+        }
+      ]
+    
+    return others
   }
 
-  const createSuggestion = (product: Product) => {    
-    let saida = `Sugestão criada: ${product.name}`
-    console.log(product.suggestions)
-    if(product.suggestions.length > 0) {
-      product.suggestions.forEach(item => {
-        saida+= ` + ${item.label}`
+  const createSuggestion = (productIndex:number) => {    
+    const productToBeUpdated = productsData[productIndex]    
+    const allProducts = [...productsData]
+    if(productToBeUpdated.suggestion !== null){
+      fetch(`${API}/suggestion`, {
+        method:"POST",
+        headers: {"Content-type": "application/json;charset=UTF-8"},
+        body: JSON.stringify({productId:productToBeUpdated.id, suggestedId:productToBeUpdated.suggestion.id})
       })
-  
-      setCombinations([ ...combinations, saida ])
-      console.log(combinations)
-      console.log(saida)
+      .then(res => {
+        return res.json()
+        .then((json:any) => {
+          if(json.error){
+            alert(json.error.msg)
+          } else {
+            const newSuggestion: SuggestionData = {
+              suggestionId: json.data.suggestionId,
+              suggestedId: json.data.suggestedId
+            } 
+            productToBeUpdated.savedSuggestions.push(newSuggestion)
+            allProducts[productIndex] = productToBeUpdated
+            setProductsData(allProducts)
+          }
+        })
+      })
     } else {
       alert("Por favor, insira algum item como sugestão para este produto!")
     }
   }
 
-  const updateProductSuggestion = (productIndex:number, newOptions: Option[]) => {
+  const deleteSuggestion = (suggestionId:number) => {
+    let prodFoundId:number
+    let suggestionFoundId:number = 0
+    productsData.forEach(prod => {
+      prod.savedSuggestions.forEach(suggestion => {
+        if(suggestion.suggestionId == suggestionId){
+          suggestionFoundId = suggestionId
+          prodFoundId = prod.id
+        }
+      })
+    })
+    if(suggestionFoundId){
+      fetch(`${API}/suggestion/${suggestionFoundId}`, {
+        method:"DELETE",
+      })
+      .then(res => {
+        if(res.status == 204) {
+          const allProducts = [...productsData]
+          const prod = getProductById(prodFoundId)
+          const prodIndex = productsData.indexOf(prod)
+          console.log(allProducts, prodIndex)
+          prod.savedSuggestions = prod.savedSuggestions.filter(suggestion => suggestion.suggestionId !== suggestionFoundId)
+          allProducts[prodIndex] = prod
+          console.log(prodIndex)
+          // console.log(allProducts.length)
+          setProductsData(allProducts)
+        } else {
+          alert("Erro ao deletar sugestão")
+        }
+      })
+    }
+  }
+
+  const updateProductSuggestion = (productIndex:number, newOption: Product) => {
     const productToBeUpdated = productsData[productIndex]    
-    const allProducts = productsData
-    productToBeUpdated.suggestions = newOptions
+    const allProducts = [...productsData]
+    productToBeUpdated.suggestion = newOption
     allProducts[productIndex] = productToBeUpdated
     setProductsData(allProducts)
   }
 
   const handleSearchQuery = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const lowerCase = e.target.value.toLowerCase()  
-    if(lowerCase == ''){
+    if(e.target.value == ''){
       setSearchedProductsIds([])
     }  
-    setSearchQuery(lowerCase)
+    setSearchQuery(e.target.value)
   }
 
   const handleSearchProducts = () => {
-    const matchedProducts: string[] = []
+    const matchedProducts: number[] = []
     productsData.forEach(item => {
-      if(item.isActive && item.name.toLocaleLowerCase().includes(searchQuery)){
+      if(item.isActive && item.name.toLocaleLowerCase().includes(searchQuery.toLocaleLowerCase())){
         matchedProducts.push(item.id)
       }
     })
@@ -139,35 +262,33 @@ function ProductCombinations() {
     setSearchedProductsIds(matchedProducts)
   }
 
-  const renderCombinations = (product: Product): React.ReactElement[] => {
-    const productCombinations: React.ReactElement[] = []
-    combinations.forEach(item => {
-      if(item.includes(`Sugestão criada: ${product.name}`)) {
-        productCombinations.push(
-          <div className="flex justify-between mv5">
-            {item}
-            <ButtonPlain variation="danger" className="mh7">
-              Excluir
-            </ButtonPlain>
-          </div>
+  const renderSuggestions = (product: Product): React.ReactElement[] => {
+    const suggestions: React.ReactElement[] = []
+    product.savedSuggestions.forEach((item) => {
+      const itemExist = getProductById(item.suggestedId)
+      if(itemExist){
+        suggestions.push(
+          <Suggestion
+            productImg={product.imageURL}
+            productName={product.name}
+            suggestionImg={getProductById(item.suggestedId).imageURL}
+            suggestionName={getProductById(item.suggestedId).name}
+            deleteSuggestion={deleteSuggestion}
+            suggestionId={item.suggestionId}
+            />
         )
       }
     })
 
-    return productCombinations
+    return suggestions
   }
 
-  const renderProductImages = (product: Product): React.ReactElement[] => {
-    const productImages: React.ReactElement[] = []
-    product.imagesURLs.forEach(item => {
-      productImages.push(
-        <div>
-          <img width="128" height="128" src={item} alt={product.name}/>
+  const renderProductImages = (product: Product): React.ReactElement => {
+    return (
+        <div className="mb5 flex flex-wrap">
+          <img className="mh5" width="128" height="128" src={product.imageURL} alt={product.name}/>
         </div>
       )
-    })
-
-    return productImages
   }
 
   const renderProducts = (): React.ReactElement[] => {
@@ -176,26 +297,31 @@ function ProductCombinations() {
       if(product.isActive && (searchedProductsIds.includes(product.id) || searchedProductsIds.length === 0)) {
         productBlocks.push(
           <PageBlock key={product.id}>
-            <div className="flex items-center">
-              {renderProductImages(product)}
-            </div>
-            <div className="mv3">
+            <div className="flex flex-column items-center justify-center">
+              <div className="mh3">
+                {renderProductImages(product)}
+              </div>
+              <div className="mb5">
               {product.name}
+              </div>
             </div>
             <Select
               placeholder="Selecione..."
               options={productToOptions(product)}
-              multi={true}
-              onChange={(values: []) => updateProductSuggestion(index, values)}                
+              multi={false}
+              onChange={(values:any) => updateProductSuggestion(index, values.value)}                
               creatable
               />
-            <div className="flex mv3 items-center">        
-              <Button size="small" variation="secondary" onClick={() => createSuggestion(product)}>
+            <div className="flex mt5 flex-column justify-center items-center" onClick={() => createSuggestion(index)}>        
+              <Button 
+                size="small"
+                variation="secondary"
+                >
                 Criar sugestão
               </Button>
             </div>
             <div>
-              {renderCombinations(product)}
+              {renderSuggestions(product)}
             </div>
           </PageBlock>
         )
@@ -213,7 +339,8 @@ function ProductCombinations() {
         subtitle="Para cada produto, selecione as sugestões desejadas. As opções selecionadas apareceram na página do produto."
       >
       <div className="flex mv3 items-center">
-        <InputSearch 
+        <InputSearch
+          ref={searchInputRef}
           placeholder="Qual produto está procurando?"
           value={searchQuery}
           onChange={handleSearchQuery}
