@@ -56,9 +56,9 @@
       "orientation": "vertical"
     },
     "children": [
-      "menu-item#category-moletons",
+      "menu-item#category-calcas",
       "menu-item#category-camisas",
-      "menu-item#category-calcas"
+      "menu-item#category-moletons"
     ]
   },
   "vtex.menu@2.x:submenu#masculino": {
@@ -90,8 +90,8 @@
       "orientation": "vertical"
     },
     "children": [
-      "menu-item#category-moletonsm",
       "menu-item#category-camisasm",
+      "menu-item#category-moletonsm",
       "menu-item#category-shortsm"
     ]
   },

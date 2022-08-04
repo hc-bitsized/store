@@ -55,7 +55,6 @@
       }
     }
   },
-
   "vtex.menu@2.x:menu#footer-masculino": {
     "props": {
       "orientation": "vertical"
@@ -66,7 +65,6 @@
       "menu-item#Shorts-masculinos"
     ]
   },
-
   "menu-item#camisas-masculinas": {
     "props": {
       "id": "menu-item-camisas-masculinas",
@@ -82,7 +80,6 @@
       }
     }
   },
-
   "menu-item#moletons-masculinos": {
     "props": {
       "id": "menu-item-moletons-masculinos",
@@ -98,7 +95,6 @@
       }
     }
   },
-
   "menu-item#Shorts-masculinos": {
     "props": {
       "id": "menu-item-Shorts-masculinos",
@@ -107,21 +103,22 @@
       "highlight": false,
       "itemProps": {
         "type": "internal",
-        "href": "/roupas/masculinas/short",
+        "href": "/roupas/masculinas/shorts",
         "noFollow": true,
         "tagTitle": "Shorts - Masculino",
         "text": "Shorts - Masculino"
       }
     }
   },
-
   "vtex.menu@2.x:menu#footer-meias": {
     "props": {
       "orientation": "vertical"
     },
-    "children": ["menu-item#meias", "menu-item#variedades"]
+    "children": [
+      "menu-item#meias",
+      "menu-item#variedades"
+    ]
   },
-
   "menu-item#meias": {
     "props": {
       "id": "menu-item-meias",
@@ -137,7 +134,6 @@
       }
     }
   },
-
   "menu-item#variedades": {
     "props": {
       "id": "menu-item-variedades",
@@ -153,18 +149,16 @@
       }
     }
   },
-
   "vtex.menu@2.x:menu#footer-roupas-femininas": {
     "props": {
       "orientation": "vertical"
     },
     "children": [
-      "menu-item#roupas-femininas",
-      "menu-item#shorts",
-      "menu-item#calcas-femininas"
+      "menu-item#calcas-femininas",
+      "menu-item#camisas-femininas",
+      "menu-item#moletons-femininos"
     ]
   },
-
   "vtex.menu@2.x:menu#footer-mobile": {
     "props": {
       "orientation": "vertical"
@@ -175,7 +169,6 @@
       "menu-item#sale-mobile"
     ]
   },
-
   "menu-item#roupas-femininas-mobile": {
     "props": {
       "id": "menu-item-category-roupas-femininas",
@@ -190,19 +183,25 @@
         "text": "Feminino"
       }
     },
-    "blocks": ["vtex.menu@2.x:submenu.accordion#roupas-femininas"]
+    "blocks": [
+      "vtex.menu@2.x:submenu.accordion#roupas-femininas"
+    ]
   },
   "vtex.menu@2.x:submenu.accordion#roupas-femininas": {
-    "children": ["vtex.menu@2.x:menu#roupas-femininas-accordion"]
+    "children": [
+      "vtex.menu@2.x:menu#roupas-femininas-accordion"
+    ]
   },
-
   "vtex.menu@2.x:menu#roupas-femininas-accordion": {
     "props": {
       "orientation": "vertical"
     },
-    "children": ["menu-item#shorts", "menu-item#calcas-femininas", "menu-item#camisas"]
+    "children": [
+      "menu-item#calcas-femininas",
+      "menu-item#camisas-femininas",
+      "menu-item#moletons-femininos"
+    ]
   },
-
   "menu-item#masculino-mobile": {
     "props": {
       "itemProps": {
@@ -210,12 +209,15 @@
         "text": "Masculino"
       }
     },
-    "blocks": ["vtex.menu@2.x:submenu.accordion#masculino"]
+    "blocks": [
+      "vtex.menu@2.x:submenu.accordion#masculino"
+    ]
   },
   "vtex.menu@2.x:submenu.accordion#masculino": {
-    "children": ["vtex.menu@2.x:menu#footer-masculino-mobile"]
+    "children": [
+      "vtex.menu@2.x:menu#footer-masculino-mobile"
+    ]
   },
-
   "vtex.menu@2.x:menu#footer-masculino-mobile": {
     "props": {
       "orientation": "vertical"
@@ -226,7 +228,6 @@
       "menu-item#Shorts-masculinos"
     ]
   },
-
   "menu-item#sale-mobile": {
     "props": {
       "itemProps": {
@@ -234,18 +235,23 @@
         "text": "Ofertas"
       }
     },
-    "blocks": ["vtex.menu@2.x:submenu.accordion#sale"]
+    "blocks": [
+      "vtex.menu@2.x:submenu.accordion#sale"
+    ]
   },
   "vtex.menu@2.x:submenu.accordion#sale": {
-    "children": ["vtex.menu@2.x:menu#footer-sale-mobile"]
+    "children": [
+      "vtex.menu@2.x:menu#footer-sale-mobile"
+    ]
   },
-
   "vtex.menu@2.x:menu#footer-sale-mobile": {
     "props": {
       "orientation": "vertical"
-    }
+    },
+    "children": [
+      "menu-item#combinacoes"
+    ]
   },
-
   "menu-item#roupas-femininas": {
     "props": {
       "id": "menu-item-category-roupas-femininas",
@@ -254,30 +260,28 @@
       "highlight": false,
       "itemProps": {
         "type": "internal",
-        "href": "/roupas/femininas/camisas-femininas",
+        "href": "/roupas/femininas",
         "noFollow": true,
-        "tagTitle": "Camisas",
-        "text": "Camisas - Feminino"
+        "tagTitle": "Feminino",
+        "text": "Feminino"
       }
     }
   },
-
-  "menu-item#shorts": {
+  "menu-item#camisas-femininas": {
     "props": {
-      "id": "menu-item-shorts",
+      "id": "menu-item-camisas-femininas",
       "type": "custom",
       "iconId": null,
       "highlight": false,
       "itemProps": {
         "type": "internal",
-        "href": "/roupas/femininas/moletom-feminino",
+        "href": "/roupas/femininas/camisas-femininas",
         "noFollow": false,
-        "tagTitle": "Camisas",
-        "text": "Moletons - Feminino"
+        "tagTitle": "Camisas - Feminino",
+        "text": "Camisas - Feminino"
       }
     }
   },
-
   "menu-item#calcas-femininas": {
     "props": {
       "id": "menu-item-calcas-femininas",
@@ -293,9 +297,9 @@
       }
     }
   },
-  "menu-item#camisas": {
+  "menu-item#moletons-femininos": {
     "props": {
-      "id": "menu-item-shorts",
+      "id": "menu-item-moletons-femininos",
       "type": "custom",
       "iconId": null,
       "highlight": false,
