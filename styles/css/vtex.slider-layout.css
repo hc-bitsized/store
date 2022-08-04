@@ -30,8 +30,11 @@
   min-height: 550px;
 }
 .sliderArrows--carousel{
-  color: #ffffff;
+  color: white;
 }
 .sliderTrack--marcas{
   margin: 50px 5px 50px;
+}
+.imageElementLink--carousel{
+  width: 100vw;
 }
