@@ -96,4 +96,6 @@
 .flexRow--addToCartRow {
   padding-bottom: 1rem;
 }
-
+.flexColChild--filterCol{
+  padding-left: 15px;
+}
