@@ -136,6 +136,7 @@ function ProductCombinations() {
     const others:any[] = []
     const preSuggestions:any[] = []
     const preSuggestedProducts: Product[] = []
+    productSelect.preSuggestions = productSelect.preSuggestions.sort((a, b) => a.countOrders >= b.countOrders ? -1 : 1)
     productSelect.preSuggestions.forEach(item => {
       const product = getProductById(item.preSuggestionId)
       if(product){
