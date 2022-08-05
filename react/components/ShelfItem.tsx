@@ -59,18 +59,12 @@ const ItemContainer = styled.div`
     height: auto;
     }
     @media(max-width: 900px) {
-    padding: 5px;
+    padding: 10px;
     max-width:170px;
     min-width: 170px;    
     height: auto;
     }
     @media(max-width: 768px) {
-    padding: 10px;
-    max-width:130px;
-    min-width: 130px;    
-    height: auto;
-    }
-    @media(max-width: 650px) {
     padding: 0px;
     max-width:300px;
     min-width: 300px;    
@@ -78,8 +72,8 @@ const ItemContainer = styled.div`
     }
     @media(max-width: 425px) {
     padding: 0px;
-    max-width:200px;
-    min-width: 200px;    
+    max-width:150px;
+    min-width: 150px;    
     height: auto;
     }
 `

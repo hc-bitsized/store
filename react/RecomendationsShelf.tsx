@@ -400,6 +400,7 @@ const Container = styled.div`
     margin: 0 auto;
     .container-product{
         width: 250px;
+        padding: 10px;
     }
     .container-product img{
         width: 200px;
@@ -410,10 +411,9 @@ const Container = styled.div`
     
   } 
   @media(max-width: 1129px) {
-    max-width: 1129px;
-    margin: 0 auto;
     .container-product{
         width: 250px;
+        padding: 10px;
     }
     .container-product img{
         width: 200px;
@@ -427,6 +427,7 @@ const Container = styled.div`
     margin: 0 auto;
     .container-product{
         width: 200px;
+        padding: 10px;
     }
     .container-product img{
         width: 150px;
@@ -463,18 +464,6 @@ const Container = styled.div`
     
   } 
     @media(max-width: 768px) {
-    .container-product{
-        width: 130px;
-    }
-    .container-product img{
-        width: 90px;
-    }
-    .container-product h4{
-        font-size:15px;
-    }
-    
-  } 
-  @media(max-width: 650px) {
     .item-container{
     flex-direction: column;
     }
@@ -491,7 +480,8 @@ const Container = styled.div`
         font-size:15px;
     }
     
-  }
+  } 
+  
     @media(max-width: 425px) {
     .item-container{
     flex-direction: column;
@@ -500,10 +490,11 @@ const Container = styled.div`
         flex-direction: column;
     }
     .container-product{
-        width: 250px;
+        width: 200px;
+        
     }
     .container-product img{
-        width: 200px;
+        width:150px;
     }
     .container-product h4{
         font-size:15px;
@@ -569,7 +560,7 @@ const CartButton = styled.div`
         font-size: 12px;
     }
     @media(max-width: 650px) {
-        font-size: 20px;
+        font-size: 12px;
     }
     
 `
@@ -580,6 +571,14 @@ const SkuLabel = styled.label`
     padding: 10px 16px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    @media(max-width: 900px) {
+    display: inline-block;
+    background-color: white;
+    padding: 6px 11px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    }
+
 `
 
 const SkuButton = styled.input`
