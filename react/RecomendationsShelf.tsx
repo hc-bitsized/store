@@ -16,12 +16,14 @@ const RecomendationsShelf = () => {
     const [ loading, setLoading ] = useState<boolean>(false);
     const handles = useCssHandles(CSS_HANDLES)
     const [ arrayProducts, setArrayProducts]  = useState([]) as any  
-    const [ skuSelection, setSkuSelection ] = useState<Array<number>>([0,0,0]) 
+    const [ skuSelection, setSkuSelection ] = useState<Array<any>>(Array.from({ length: 4 }).fill(0)) 
     const [ skuNames, setSkuNames] = useState<Array<any>>([
-        {productName: '', Tamanho: '', Cor: ''},
-        {productName: '', Tamanho: '', Cor: ''},
-        {productName: '', Tamanho: '', Cor: ''}
-    ])    
+        {productName: '', Tamanho: 'P', Cor: ''},
+        {productName: '', Tamanho: 'P', Cor: ''},
+        {productName: '', Tamanho: 'P', Cor: ''},
+        {productName: '', Tamanho: 'P', Cor: ''}
+    ])
+       
     
     // Puxa as sugestões na API do backend e; 
     // seleciona na API de catálogo somente os produtos que são sugestão para o produto do contexto
@@ -57,27 +59,25 @@ const RecomendationsShelf = () => {
     console.log('arrayProducts', arrayProducts)
     console.log('productContext', productContext)    
     
-    
-    let priceSum = 0;
-    
-    arrayProducts.map((product: any) => {
-        priceSum += product.items[0].sellers[0].commertialOffer.Price 
-    })
 
     // funcao que adiciona todos os produtos da combinacao no carrinho
-    const addToCart = async () => {
-        
-        await arrayProducts.map((product: any, index: any) => {            
-            
-            fetch(`/api/catalog_system/pub/products/search?fq=productId:${product.productId}`)
+    const addToCart = async (element: any) => {
+        const ids = element.target.id.split("-")
+        // alert(ids)        
+
+        await ids.map((product: any) => {  
+            const productIndex = arrayProducts.findIndex((x: any) => x.productId === product)
+            // alert(productIndex)
+
+            fetch(`/api/catalog_system/pub/products/search?fq=productId:${product}`)
             .then((response) => response.json()) 
             .then((data) => {
-                populateCart(data, skuSelection[index])
+                populateCart(data, skuSelection[productIndex])
             }) 
         }) 
 
            
-        setSkuSelection([0,0,0])
+        
     }
     
     // Adicionando informações sobre cada produto que está sendo add no carrinho
@@ -116,8 +116,10 @@ const RecomendationsShelf = () => {
     const customSku = (element: any) => {
         const split = element.target.id.split("-")
         const skuID = split[0]
-        const productIndex = split[1]
+        const id = split[1]
+        const productIndex = arrayProducts.findIndex((x: any) => x.productId === id)
         const valueID = split[2]
+        
 
         let currentItemObj = {...skuNames}
 
@@ -151,7 +153,7 @@ const RecomendationsShelf = () => {
             }
             const finalOptionName = arrayItemVerification.join(" ")
             // alert(`Seleção: ${finalName} VS ${finalOptionName} index: ${index}`)
-            // setSkuSelection(skuSelection)
+            
 
             if ( finalName === finalOptionName) { 
 
@@ -163,12 +165,179 @@ const RecomendationsShelf = () => {
                 setSkuSelection(skuArray)
             } 
         })
-
-
-        
-
         
     }
+
+    const renderProducts = (current: any, target: any): React.ReactElement[] => {
+        const productBlocks: React.ReactElement[] = []
+        const array = [arrayProducts[current], arrayProducts[target]]
+        array.forEach((product: any, index: number) => (                         
+            productBlocks.push(
+                <div>
+                {index === 0 ? 
+                    <PlusImage className='plus-image'>
+                        <ContainerProduct className='container-product'>
+                        <ShelfItem 
+                            linkURL={product.link} 
+                            id={product.productId}
+                            imageURL={product.items[skuSelection[arrayProducts.findIndex((x: any) => x.productId === product.productId)]].images[0].imageUrl} 
+                            name={product.productName} 
+                            sellingPrice={product.items[0].sellers[0].commertialOffer.ListPrice}
+                            price={product.items[skuSelection[arrayProducts.findIndex((x: any) => x.productId === product.productId)]].sellers[0].commertialOffer.Price} 
+                        />
+                        {/* ------------------------- SKU's --------------------------------------- */}
+                        {product.skuSpecifications !== undefined ? 
+                            product.skuSpecifications.map((sku: any) => (
+                                <SkusBlock>
+                                    {sku.field?.name === 'Tamanho' ?
+                                        <Sku>
+                                            <p>{sku.field.name}</p>
+                                            <ItemContainer>
+                                                {sku.values.map((skuValue: any) => (
+                                                    <DivSKU>
+                                                        <SkuButton type='radio' name={`${array[index].productId} sku1`} id={`${skuValue.name}-${array[index].productId}-0`} onClick={customSku} />
+                                                        <SkuLabel htmlFor={`${array[index].productId} sku1`}>{skuValue.name}</SkuLabel>
+                                                    </DivSKU>
+                                                ))}
+                                            </ItemContainer>
+                                        </Sku>
+                                    : 
+                                    <Sku>
+                                        <p>{sku.field.name}</p>
+                                        <ItemContainer>
+                                        {sku.values.map((skuValue: any) => (
+                                                    <DivSKU>
+                                                        <SkuButton type='radio' name={`${array[index].productId} sku2`} id={`${skuValue.name}-${array[index].productId}-1`} onClick={customSku} />
+                                                        <SkuLabel htmlFor={`${array[index].productId} sku2`}>{skuValue.name}</SkuLabel>
+                                                    </DivSKU>
+                                                ))}
+                                        </ItemContainer>
+                                    </Sku>
+                                    }                                                
+                                    
+                                </SkusBlock>
+                            ))
+                        : <div></div>}
+                        {/* ----------------------------------------------------------------------------- */}
+                        </ContainerProduct>
+                    </PlusImage>                            
+                    : index === (array.length - 1) ?
+                    <PlusImage className='plus-image'>
+                        <div><BigText className='big-text'>+</BigText></div>
+                        <ContainerProduct className='container-product'>
+                        <ShelfItem 
+                            linkURL={product.link} 
+                            id={product.productId}
+                            imageURL={product.items[skuSelection[arrayProducts.findIndex((x: any) => x.productId === product.productId)]].images[0].imageUrl} 
+                            name={product.productName} 
+                            sellingPrice={product.items[0].sellers[0].commertialOffer.ListPrice}
+                            price={product.items[skuSelection[arrayProducts.findIndex((x: any) => x.productId === product.productId)]].sellers[0].commertialOffer.Price} 
+                        />
+                         {/* ------------------------- SKU's --------------------------------------- */}
+                         {product.skuSpecifications !== undefined ? 
+                            product.skuSpecifications?.map((sku: any) => (
+                                <SkusBlock>
+                                    {sku.field?.name === 'Tamanho' ?
+                                        <Sku>
+                                            <p>{sku.field.name}</p>
+                                            <ItemContainer>
+                                                {sku.values.map((skuValue: any) => (
+                                                    <DivSKU>
+                                                        <SkuButton type='radio' name={`${array[index].productId} sku1`} id={`${skuValue.name}-${array[index].productId}-0`} onClick={customSku} />
+                                                        <SkuLabel htmlFor={`${array[index].productId} sku1`}>{skuValue.name}</SkuLabel>
+                                                    </DivSKU>
+                                                ))}
+                                            </ItemContainer>
+                                        </Sku>
+                                    : 
+                                    <Sku>
+                                        <p>{sku.field.name}</p>
+                                        <ItemContainer>
+                                        {sku.values.map((skuValue: any) => (
+                                                    <DivSKU>
+                                                        <SkuButton type='radio' name={`${array[index].productId} sku2`} id={`${skuValue.name}-${array[index].productId}-1`} onClick={customSku} />
+                                                        <SkuLabel htmlFor={`${array[index].productId} sku2`}>{skuValue.name}</SkuLabel>
+                                                    </DivSKU>
+                                                ))}
+                                        </ItemContainer>
+                                    </Sku>
+                                    }                                                
+                                    
+                                </SkusBlock>
+                            ))
+                         : <div></div>}
+                        {/* ----------------------------------------------------------------------------- */}
+                        </ContainerProduct>
+                        <div><BigText className='big-text'>=</BigText></div>
+                        <TotalPrice className='total-price'>
+                            <BigText>{ array.length !== undefined ? 
+                                `Leve os ${array.length} produtos`
+                                : 
+                                "Leve todos os produtos"}</BigText>
+                            <SmallText>E poupe seu precioso tempo</SmallText>
+                            <BigText>{formatPrice(array[0].items[0].sellers[0].commertialOffer.Price + array[1].items[0].sellers[0].commertialOffer.Price)  }</BigText>
+                            <CartButton id={`${array[0].productId}-${array[1].productId}`} onClick={addToCart} className='button' >
+                                ADICIONAR TUDO AO CARRINHO
+                            </CartButton>
+                        </TotalPrice>
+                    </PlusImage> 
+                : 
+                    <PlusImage className='plus-image'>
+                        <div><BigText className='big-text'>+</BigText></div>
+                        <ContainerProduct className='container-product'>
+                        <ShelfItem
+                            linkURL={product.link} 
+                            id={product.productId}
+                            imageURL={product.items[skuSelection[arrayProducts.findIndex((x: any) => x.productId === product.productId)]].images[0].imageUrl} 
+                            name={product.productName} 
+                            sellingPrice={product.items[0].sellers[0].commertialOffer.ListPrice}
+                            price={product.items[skuSelection[arrayProducts.findIndex((x: any) => x.productId === product.productId)]].sellers[0].commertialOffer.Price} 
+                        />
+                         {/* ------------------------- SKU's --------------------------------------- */}
+                         {product.skuSpecifications !== undefined ? 
+                            product.skuSpecifications.map((sku: any) => (
+                                <SkusBlock>
+                                    {sku.field?.name === 'Tamanho' ?
+                                        <Sku>
+                                            <p>{sku.field.name}</p>
+                                            <ItemContainer>
+                                            {sku.values.map((skuValue: any) => (
+                                                    <DivSKU>
+                                                        <SkuButton type='radio' name={`${array[index].productId} sku1`} id={`${skuValue.name}-${array[index].productId}-0`} onClick={customSku} />
+                                                        <SkuLabel htmlFor={`${array[index].productId} sku1`}>{skuValue.name}</SkuLabel>
+                                                    </DivSKU>
+                                                ))}
+                                            </ItemContainer>
+                                        </Sku>
+                                    : 
+                                    <Sku>
+                                        <p>{sku.field.name}</p>
+                                        <ItemContainer>
+                                        {sku.values.map((skuValue: any) => (
+                                                    <DivSKU>
+                                                        <SkuButton type='radio' name={`${array[index].productId} sku2`} id={`${skuValue.name}-${array[index].productId}-1`} onClick={customSku} />
+                                                        <SkuLabel htmlFor={`${array[index].productId} sku2`}>{skuValue.name}</SkuLabel>
+                                                    </DivSKU>
+                                                ))}
+                                        </ItemContainer>
+                                    </Sku>
+                                    }                                                
+                                    
+                                </SkusBlock>
+                            ))
+                         : <div></div>}
+                        {/* ----------------------------------------------------------------------------- */}
+                        </ContainerProduct>
+                    </PlusImage>
+                }
+            </div>              
+            )  
+        ))
+        return productBlocks
+    }
+
+
+
 
     useEffect(() => {
         getItems() 
@@ -193,173 +362,14 @@ const RecomendationsShelf = () => {
         return (
             <Container className={`${handles.containerShelf} container`}>
                 <Title>
-                    <h2>Compre Junto</h2>
+                    <h1>Compre Junto</h1>
                 </Title>
                 {arrayProducts && loading ? 
-                    <ItemContainer className='item-container'> 
-                        {arrayProducts.map((product: any, index: number) => (                         
-                            <div>
-                                {index === 0 ? 
-                                    <PlusImage className='plus-image'>
-                                        <ContainerProduct className='container-product'>
-                                        <ShelfItem 
-                                            linkURL={product.link} 
-                                            id={product.productId}
-                                            imageURL={product.items[skuSelection[index]].images[0].imageUrl} 
-                                            name={product.productName} 
-                                            sellingPrice={product.items[skuSelection[index]].sellers[0].commertialOffer.ListPrice}
-                                            price={product.items[skuSelection[index]].sellers[0].commertialOffer.Price} 
-                                        />
-                                        {/* ------------------------- SKU's --------------------------------------- */}
-                                        {product.skuSpecifications !== undefined ? 
-                                            product.skuSpecifications.map((sku: any) => (
-                                                <SkusBlock>
-                                                    {sku.field?.name === 'Tamanho' ?
-                                                        <Sku>
-                                                            <p>{sku.field.name}</p>
-                                                            <ItemContainer>
-                                                                {sku.values.map((skuValue: any) => (
-                                                                    <DivSKU>
-                                                                        <SkuButton type='radio' name='product1-sku1' id={`${skuValue.name}-${index}-0`} onClick={customSku} />
-                                                                        <SkuLabel htmlFor='product1-sku1'>{skuValue.name}</SkuLabel>
-                                                                    </DivSKU>
-                                                                ))}
-                                                            </ItemContainer>
-                                                        </Sku>
-                                                    : 
-                                                    <Sku>
-                                                        <p>{sku.field.name}</p>
-                                                        <ItemContainer>
-                                                        {sku.values.map((skuValue: any) => (
-                                                                    <DivSKU>
-                                                                        <SkuButton type='radio' name='product1-sku2' id={`${skuValue.name}-${index}-1`} onClick={customSku} />
-                                                                        <SkuLabel htmlFor='product1-sku2'>{skuValue.name}</SkuLabel>
-                                                                    </DivSKU>
-                                                                ))}
-                                                        </ItemContainer>
-                                                    </Sku>
-                                                    }                                                
-                                                    
-                                                </SkusBlock>
-                                            ))
-                                        : <div></div>}
-                                        {/* ----------------------------------------------------------------------------- */}
-                                        </ContainerProduct>
-                                    </PlusImage>                            
-                                    : index === (arrayProducts.length - 1) ?
-                                    <PlusImage className='plus-image'>
-                                        <div><BigText className='big-text'>+</BigText></div>
-                                        <ContainerProduct className='container-product'>
-                                        <ShelfItem 
-                                            linkURL={product.link} 
-                                            id={product.productId}
-                                            imageURL={product.items[0].images[0].imageUrl} 
-                                            name={product.productName} 
-                                            sellingPrice={product.items[0].sellers[0].commertialOffer.ListPrice}
-                                            price={product.items[0].sellers[0].commertialOffer.Price}  
-                                        />
-                                         {/* ------------------------- SKU's --------------------------------------- */}
-                                         {product.skuSpecifications !== undefined ? 
-                                            product.skuSpecifications?.map((sku: any) => (
-                                                <SkusBlock>
-                                                    {sku.field?.name === 'Tamanho' ?
-                                                        <Sku>
-                                                            <p>{sku.field.name}</p>
-                                                            <ItemContainer>
-                                                                {sku.values.map((skuValue: any) => (
-                                                                    <DivSKU>
-                                                                        <SkuButton type='radio' name='product2-sku1' id={`${skuValue.name}-${index}-0`} onClick={customSku} />
-                                                                        <SkuLabel htmlFor='product2-sku1'>{skuValue.name}</SkuLabel>
-                                                                    </DivSKU>
-                                                                ))}
-                                                            </ItemContainer>
-                                                        </Sku>
-                                                    : 
-                                                    <Sku>
-                                                        <p>{sku.field.name}</p>
-                                                        <ItemContainer>
-                                                        {sku.values.map((skuValue: any) => (
-                                                                    <DivSKU>
-                                                                        <SkuButton type='radio' name='product2-sku2' id={`${skuValue.name}-${index}-1`} onClick={customSku} />
-                                                                        <SkuLabel htmlFor='product2-sku2'>{skuValue.name}</SkuLabel>
-                                                                    </DivSKU>
-                                                                ))}
-                                                        </ItemContainer>
-                                                    </Sku>
-                                                    }                                                
-                                                    
-                                                </SkusBlock>
-                                            ))
-                                         : <div></div>}
-                                        {/* ----------------------------------------------------------------------------- */}
-                                        </ContainerProduct>
-                                        <div><BigText className='big-text'>=</BigText></div>
-                                        <TotalPrice className='total-price'>
-                                            <BigText>{ arrayProducts.length !== undefined ? 
-                                                `Leve os ${arrayProducts.length} produtos`
-                                                : 
-                                                "Leve todos os produtos"}</BigText>
-                                            <SmallText>E poupe seu precioso tempo</SmallText>
-                                            <BigText>{formatPrice(priceSum)}</BigText>
-                                            <CartButton id={product.productId} onClick={addToCart} className='button' >
-                                                ADICIONAR TUDO AO CARRINHO
-                                            </CartButton>
-                                        </TotalPrice>
-                                    </PlusImage> 
-                                : 
-                                    <PlusImage className='plus-image'>
-                                        <div><BigText className='big-text'>+</BigText></div>
-                                        <ContainerProduct className='container-product'>
-                                        <ShelfItem
-                                            linkURL={product.link} 
-                                            id={product.productId}
-                                            imageURL={product.items[0].images[0].imageUrl} 
-                                            name={product.productName} 
-                                            sellingPrice={product.items[0].sellers[0].commertialOffer.ListPrice}
-                                            price={product.items[0].sellers[0].commertialOffer.Price} 
-                                        />
-                                         {/* ------------------------- SKU's --------------------------------------- */}
-                                         {product.skuSpecifications !== undefined ? 
-                                            product.skuSpecifications.map((sku: any) => (
-                                                <SkusBlock>
-                                                    {sku.field?.name === 'Tamanho' ?
-                                                        <Sku>
-                                                            <p>{sku.field.name}</p>
-                                                            <ItemContainer>
-                                                            {sku.values.map((skuValue: any) => (
-                                                                    <DivSKU>
-                                                                        <SkuButton type='radio' name='product3-sku1' id={`${skuValue.name}-${index}-0`} onClick={customSku} />
-                                                                        <SkuLabel htmlFor='product3-sku1'>{skuValue.name}</SkuLabel>
-                                                                    </DivSKU>
-                                                                ))}
-                                                            </ItemContainer>
-                                                        </Sku>
-                                                    : 
-                                                    <Sku>
-                                                        <p>{sku.field.name}</p>
-                                                        <ItemContainer>
-                                                        {sku.values.map((skuValue: any) => (
-                                                                    <DivSKU>
-                                                                        <SkuButton type='radio' name='product3-sku2' id={`${skuValue.name}-${index}-1`} onClick={customSku} />
-                                                                        <SkuLabel htmlFor='product3-sku2'>{skuValue.name}</SkuLabel>
-                                                                    </DivSKU>
-                                                                ))}
-                                                        </ItemContainer>
-                                                    </Sku>
-                                                    }                                                
-                                                    
-                                                </SkusBlock>
-                                            ))
-                                         : <div></div>}
-                                        {/* ----------------------------------------------------------------------------- */}
-                                        </ContainerProduct>
-                                    </PlusImage>
-                                }
-                            
-                            </div>                      
-                            
-                        ))}
-                    </ItemContainer> 
+                    [1,2,3,4,5,6,7,8,9].slice(0, (arrayProducts.length - 1)).map(block => (
+                        <ItemContainer className='item-container'> 
+                            {renderProducts(0, block)}
+                        </ItemContainer>
+                    ))
                     
                 : <Loading>Carregando sugestões...</Loading>}
             </Container>  
