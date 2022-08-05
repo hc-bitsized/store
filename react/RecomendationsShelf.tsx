@@ -221,7 +221,7 @@ const RecomendationsShelf = () => {
                                                                 {sku.values.map((skuValue: any) => (
                                                                     <DivSKU>
                                                                         <SkuButton type='radio' name='product1-sku1' id={`${skuValue.name}-${index}-0`} onClick={customSku} />
-                                                                        <label htmlFor='product1-sku1'>{skuValue.name}</label>
+                                                                        <SkuLabel htmlFor='product1-sku1'>{skuValue.name}</SkuLabel>
                                                                     </DivSKU>
                                                                 ))}
                                                             </ItemContainer>
@@ -233,7 +233,7 @@ const RecomendationsShelf = () => {
                                                         {sku.values.map((skuValue: any) => (
                                                                     <DivSKU>
                                                                         <SkuButton type='radio' name='product1-sku2' id={`${skuValue.name}-${index}-1`} onClick={customSku} />
-                                                                        <label htmlFor='product1-sku2'>{skuValue.name}</label>
+                                                                        <SkuLabel htmlFor='product1-sku2'>{skuValue.name}</SkuLabel>
                                                                     </DivSKU>
                                                                 ))}
                                                         </ItemContainer>
@@ -269,7 +269,7 @@ const RecomendationsShelf = () => {
                                                                 {sku.values.map((skuValue: any) => (
                                                                     <DivSKU>
                                                                         <SkuButton type='radio' name='product2-sku1' id={`${skuValue.name}-${index}-0`} onClick={customSku} />
-                                                                        <label htmlFor='product2-sku1'>{skuValue.name}</label>
+                                                                        <SkuLabel htmlFor='product2-sku1'>{skuValue.name}</SkuLabel>
                                                                     </DivSKU>
                                                                 ))}
                                                             </ItemContainer>
@@ -281,7 +281,7 @@ const RecomendationsShelf = () => {
                                                         {sku.values.map((skuValue: any) => (
                                                                     <DivSKU>
                                                                         <SkuButton type='radio' name='product2-sku2' id={`${skuValue.name}-${index}-1`} onClick={customSku} />
-                                                                        <label htmlFor='product2-sku2'>{skuValue.name}</label>
+                                                                        <SkuLabel htmlFor='product2-sku2'>{skuValue.name}</SkuLabel>
                                                                     </DivSKU>
                                                                 ))}
                                                         </ItemContainer>
@@ -329,7 +329,7 @@ const RecomendationsShelf = () => {
                                                             {sku.values.map((skuValue: any) => (
                                                                     <DivSKU>
                                                                         <SkuButton type='radio' name='product3-sku1' id={`${skuValue.name}-${index}-0`} onClick={customSku} />
-                                                                        <label htmlFor='product3-sku1'>{skuValue.name}</label>
+                                                                        <SkuLabel htmlFor='product3-sku1'>{skuValue.name}</SkuLabel>
                                                                     </DivSKU>
                                                                 ))}
                                                             </ItemContainer>
@@ -341,7 +341,7 @@ const RecomendationsShelf = () => {
                                                         {sku.values.map((skuValue: any) => (
                                                                     <DivSKU>
                                                                         <SkuButton type='radio' name='product3-sku2' id={`${skuValue.name}-${index}-1`} onClick={customSku} />
-                                                                        <label htmlFor='product3-sku2'>{skuValue.name}</label>
+                                                                        <SkuLabel htmlFor='product3-sku2'>{skuValue.name}</SkuLabel>
                                                                     </DivSKU>
                                                                 ))}
                                                         </ItemContainer>
@@ -573,16 +573,30 @@ const CartButton = styled.div`
     }
     
 `
-const SkuButton = styled.input`
-    
-    
-`
-const DivSKU = styled.div`
-	background-color: #8719a8;
-    padding: 5px;
-    color: white;
-    border: 1px solid transparent;
+
+const SkuLabel = styled.label`
+    display: inline-block;
+    background-color: white;
+    padding: 10px 16px;
+    border: 1px solid #ccc;
     border-radius: 4px;
+`
+
+const SkuButton = styled.input`
+    opacity:0;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top:0;
+    height: 100%;
+    cursor: pointer;
+
+    &:checked + ${SkuLabel} {
+        outline:2px solid #8719a8;
+    }
+`
+
+const DivSKU = styled.div`
     margin: 5px;
     position: relative;
     
