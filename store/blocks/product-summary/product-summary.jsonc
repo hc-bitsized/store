@@ -5,6 +5,7 @@
       "product-summary-name",
       "flex-layout.col#productRating",
       "product-summary-space",
+      "product-summary-sku-selector",
       "product-list-price#summary",
       "flex-layout.row#selling-price-savings",
       "product-installments#summary",
@@ -16,6 +17,12 @@
       "blockClass": "productRating"
     },
     "children": ["product-rating-inline"]
+  },
+
+  "product-summary-sku-selector": {
+    "props": {
+      "visibleVariations": ["Tamanho"]
+    }    
   },
 
   "stack-layout#prodsum": {
