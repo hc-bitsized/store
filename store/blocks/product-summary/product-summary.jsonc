@@ -4,7 +4,7 @@
       "stack-layout#prodsum",
       "product-summary-name",
       "flex-layout.col#productRating",
-      // "product-summary-space",
+      "product-summary-space",
       "product-summary-sku-selector",
       "product-list-price#summary",
       "flex-layout.row#selling-price-savings",

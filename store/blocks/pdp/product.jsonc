@@ -130,7 +130,8 @@
     "props": {
       "variationsSpacing": 3,
       "showValueNameForImageVariation": true,
-      "displayMode": "select"
+      "displayMode": "select",
+      "visibility": "more-than-one"
     }
   },
 
