@@ -92,10 +92,7 @@
         "desktop": "auto",
         "phone": "16:9"
       },
-      "displayThumbnailsArrows": true,
-      "showNavigationArrows": false,
-      "showPaginationDots": false
-
+      "displayThumbnailsArrows": true
     }
   },
   "flex-layout.col#right-col": {
