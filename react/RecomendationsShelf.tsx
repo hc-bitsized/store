@@ -341,7 +341,7 @@ const RecomendationsShelf = () => {
 
     useEffect(() => {
         getItems() 
-    }, [])
+    }, [productContext])
 
     // Renderiza na pdp
     if(arrayProducts.length <= 1) {
