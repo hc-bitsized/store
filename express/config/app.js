@@ -10,6 +10,9 @@ var expressValidator = require('express-validator');
 /* importar o módulo do express-session */
 var expressSession = require('express-session');
 
+/* importar o módulo do qs */
+var qs = require('qs')
+
 /* iniciar o objeto do express */
 var app = express();
 
@@ -33,6 +36,7 @@ app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization, Tipo-Usuario, Id-Usuario");
     next();
 });
+
 
 /* efetua o autoload das rotas, dos models e dos controllers para o objeto app */
 consign({cwd: 'src'})
