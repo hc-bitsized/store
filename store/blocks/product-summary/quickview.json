@@ -9,7 +9,8 @@
   "modal-layout#quickview": {
     "children": [
       "modal-header#quickview",
-      "flex-layout.row#quickview-main-row"
+      "flex-layout.row#quickview-main-row",
+      "product-shelf"
     ],
     "props": {
       "blockClass": "quickview"

@@ -50,77 +50,62 @@ function ProductCombinations() {
     const { data } = await productsIds.json()
     const requests:any = []
     Object.keys(data).forEach((product:any) => {
-      requests.push(fetch(`/api/catalog_system/pvt/products/productget/${product}`))
+      requests.push(fetch(`/api/catalog_system/pub/products/search?fq=productId:${product}`))
     })
     Promise.all(requests)
     .then((res:any) => {
       Promise.all(res.map((r:any) => r.json()))
       .then(json => {
-        json.forEach((item:any) => { 
-          const {Id, IsActive, Name} = item
-          let imageUrl:string
-          const allPreSuggestions:PreSuggestionData[] = []
-          const allSuggestions:SuggestionData[] = []
-          if(IsActive){
-            fetch(`/api/catalog_system/pub/products/variations/${Id}`)
-            .then(resVariations => {
-              if(resVariations.ok) {
-                return resVariations.json()
-              }
-              else {
-                return Promise.reject(resVariations);
-              }
-            })
-            .then(jsonVariations => {
-              const { skus } = jsonVariations
-              imageUrl = skus[0].image
-              // skus.forEach((item:any) => {
-              //   allImagesUrls.push(item.image)
-              // })
-            })
-
-            fetch(`${API}/pre-suggestion?productId=${Id}`)
-            .then(resPreSuggestions => {
-              return resPreSuggestions.json()
-            })
-            .then(jsonPreSuggestions => {
-              const { preSuggestions } = jsonPreSuggestions.data
-              preSuggestions.forEach((item:any) => {
-                const preSuggestion: PreSuggestionData = {
-                  preSuggestionId:item.productId,
-                  countOrders:item.countOrders
-                }
-                allPreSuggestions.push(preSuggestion)
+        json.forEach((prod:any) => {
+            if(prod.length > 0) {
+            const {productId, productName} = prod[0]
+            const isActive = true
+            const allPreSuggestions:PreSuggestionData[] = []
+            const allSuggestions:SuggestionData[] = []
+            if(isActive){
+              fetch(`${API}/pre-suggestion?productId=${productId}`)
+              .then(resPreSuggestions => {
+                return resPreSuggestions.json()
               })
-            })
-
-            fetch(`${API}/suggestion?productId=${Id}`)
-            .then(resSuggestions => {
-              return resSuggestions.json()
-            })
-            .then(jsonSuggestion => {
-              const { data } = jsonSuggestion
-              data.forEach((item:any) => {    
-                if(item.deleted == false){
-                  const suggestion: SuggestionData = {
-                    suggestionId: item.suggestionId,
-                    suggestedId: item.suggestedId
+              .then(jsonPreSuggestions => {
+                const { preSuggestions } = jsonPreSuggestions.data
+                preSuggestions.forEach((item:any) => {
+                  const preSuggestion: PreSuggestionData = {
+                    preSuggestionId:item.productId,
+                    countOrders:item.countOrders
                   }
-                  allSuggestions.push(suggestion)
-                }
+                  allPreSuggestions.push(preSuggestion)
+                })
               })
-              const product: Product = {
-                id: Id,
-                isActive: IsActive,
-                name: Name,
-                suggestion: null,
-                preSuggestions: allPreSuggestions,
-                savedSuggestions: allSuggestions,
-                imageURL: imageUrl
-              }
-              setProductsData(current => [...current, product])
-              setProductsLoading(false)
-            })
+
+              fetch(`${API}/suggestion?productId=${productId}`)
+              .then(resSuggestions => {
+                return resSuggestions.json()
+              })
+              .then(jsonSuggestion => {
+                const { data } = jsonSuggestion
+                data.forEach((item:any) => {    
+                  if(item.deleted == false){
+                    const suggestion: SuggestionData = {
+                      suggestionId: item.suggestionId,
+                      suggestedId: item.suggestedId
+                    }
+                    allSuggestions.push(suggestion)
+                  }
+                })
+                const product: Product = {
+                  id: productId,
+                  isActive: isActive,
+                  name: productName,
+                  suggestion: null,
+                  preSuggestions: allPreSuggestions,
+                  savedSuggestions: allSuggestions,
+                  imageURL: prod[0].items[0].images[0].imageUrl
+                }
+                setProductsData(current => [...current, product])
+                setProductsLoading(false)
+              })
+            }
           }
         })
       })

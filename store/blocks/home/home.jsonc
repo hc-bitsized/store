@@ -20,7 +20,7 @@
       "images": [
         {
           "image": "https://imgkub.com/images/2022/08/04/banner-dia-dos-pais-bitsized-2.png",
-          "mobileImage": "https://imgkub.com/images/2022/08/04/banner-dia-dos-pais-bitsized-mobile-2.png"
+          "mobileImage": "https://imgkub.com/images/2022/08/06/banner-dia-dos-pais-bitsized-mobile.png"
         },
         {
           "image": "https://imgkub.com/images/2022/07/14/desktop.png",
@@ -37,7 +37,7 @@
     "props": {
       "itemsPerPage": {
         "desktop": 1,
-        "tablet": 1,
+        "tablet": 2,
         "phone": 1
       },
       "infinite": true,
@@ -86,7 +86,7 @@
       "imageUrl": "https://imgkub.com/images/2022/07/29/Moda-Fashion-Banner-Bitsized.gif",
       "headline": "Tendências",
       "callToActionText": "DESCOBRIR",
-      "callToActionUrl": "/sale/d",
+      "callToActionUrl": "/roupas",
       "blockClass": "info-card-home",
       "textAlignment": "center"
     }
