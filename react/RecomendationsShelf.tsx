@@ -515,6 +515,16 @@ const Container = styled.div`
 const ItemContainer = styled.div`
     display: flex;
     align-items: center;
+    @media(max-width: 1280px) {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 11px;
+    }
+    @media(max-width: 600px) {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 11px;
+    }
 
 `
 const PlusImage = styled.div`
@@ -581,6 +591,7 @@ const SkuLabel = styled.label`
     padding: 10px 16px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    font-size:15px;
     @media(max-width: 900px) {
     display: inline-block;
     background-color: white;
