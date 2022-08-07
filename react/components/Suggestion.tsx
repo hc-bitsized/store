@@ -29,15 +29,15 @@ const Suggestion = ({productImg, productName, suggestionImg, suggestionName, del
     return (
         <div className="flex mv3 justify-center mv7">
             <div className="flex flex-column items-center mh5 w-25">
-                <img className="mh5" width="80" height="80" src={productImg} />
-                <span className="text-align-c">{productName}</span>
+                <img className="mh5 mb3" width="80" height="80" src={productImg} />
+                <span style={{textAlign:'center'}}>{productName}</span>
             </div>
 
             <h2 className="t-heading-2">+</h2>
 
             <div className="flex flex-column items-center mh5 w-25">
-                <img className="mh5" width="80" height="80" src={suggestionImg} />
-                <span className="align-center">{suggestionName}</span >
+                <img className="mh5 mb3" width="80" height="80" src={suggestionImg} />
+                <span style={{textAlign:'center'}}>{suggestionName}</span >
             </div>
             <ButtonPlain
                 className="mh5"
