@@ -72,6 +72,7 @@ Após a organização dos times de Front-end e back-end, a equipe fez um estudo 
 
 # Loja virtual - layout da aplicação e responsividade
 
+![Animação22](https://user-images.githubusercontent.com/74685583/183314257-afbe37fd-6ecc-411a-b058-3ea66daf293c.gif)
 
 # Admin e configurações de sugestão
 ![Admin-fluxograma.png](https://imgkub.com/images/2022/08/08/Admin-fluxograma.png)
