@@ -20,7 +20,7 @@ Neste repositório apresentamos os trabalhos desenvolvidos pela casa Bitsized, n
 
 # Cenário  
 
-Na segunda-feira, 18 de julho de 2022, os estudantes da Fase 3 do Hiring Coders 3 foram incumbidos de utilizarem os conhecimentos construídos nas fases anteriores do programa para elaboração de um projeto a ser entregue no dia 08 de agosto de 2022. A seguir, expomos o desafio que nos foi proposto pelos organizadores do evento.
+Na segunda-feira, 25 de julho de 2022, os estudantes da Fase 3 do Hiring Coders 3 foram incumbidos de utilizarem os conhecimentos construídos nas fases anteriores do programa para elaboração de um projeto a ser entregue no dia 08 de agosto de 2022. A seguir, expomos o desafio que nos foi proposto pelos organizadores do evento.
 
 João é dono de uma loja que vende roupas e acessórios com calça, camiseta, meia, óculos escuro e etc…A loja de João já possui uma grande base de pedidos, que em sua maioria possui apenas 2 itens.
 Para aumentar a quantidade de itens e assim o valor do pedido, João quer sugerir produtos que sejam comuns na compra, porém, deve permitir a mudança do carrinho de compras para que não seja enquadrado em venda casada.
@@ -62,15 +62,20 @@ Após a organização dos times de Front-end e back-end, a equipe fez um estudo 
 - [Condition Layout](https://developers.vtex.com/vtex-developer-docs/docs/vtex-condition-layout)
 - [Responsive Layout](https://developers.vtex.com/vtex-developer-docs/docs/vtex-responsive-layout)
 
+
+
+[![Animacao2.gif](https://imgkub.com/images/2022/08/08/Animacao2.gif)](https://imgkub.com/image/NQcgI)
+
 ## Backend desenvolvido na AWS
-![Admin-fluxograma.png](https://imgkub.com/images/2022/08/08/Admin-fluxograma.png)
+
+[![bitsized.drawio-1.png](https://imgkub.com/images/2022/08/08/bitsized.drawio-1.png)](https://imgkub.com/image/NQXSD)
 
 # Loja virtual - layout da aplicação e responsividade
 
 
 # Admin e configurações de sugestão
+![Admin-fluxograma.png](https://imgkub.com/images/2022/08/08/Admin-fluxograma.png)
 
-![Diagrama-sem-nome.drawio-2.png](https://imgkub.com/images/2022/08/08/Diagrama-sem-nome.drawio-2.png)
 
 
 # Membros da equipe
