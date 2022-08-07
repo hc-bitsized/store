@@ -3,7 +3,7 @@
 <h1 align = "center"> Olá, somos a casa Bitsized! 🐙
 </h1>
 
-Neste repositório apresentamos os trabalhos desenvolvidos pela equipe 4 da casa Bitsized, na final do Desafio do Programa Hiring Coders. Descrevemos também a forma de organização da equipe para análise dos Critérios de Avaliação do desafio.  
+Neste repositório apresentamos os trabalhos desenvolvidos pela casa Bitsized, na final do Desafio do Programa Hiring Coders. Descrevemos também a forma de organização da equipe para análise dos Critérios de Avaliação do desafio.  
 
 # Índice  
 
@@ -16,7 +16,6 @@ Neste repositório apresentamos os trabalhos desenvolvidos pela equipe 4 da casa
 - [Admin e configurações de sugestão](#admin-e-configurações-de-sugestão)
 - [Apresentação do processo de venda com validação em Javascript](#Apresentação-do-processo-de-venda-com-validação-em-javascript)
 - [Montagem do perfil do cliente com base nas compras realizadas](#Profiling)
-- [Considerações finais](#Considerações-finais)
 - [Membros da equipe](#Membros-da-equipe)
 
 # Cenário  
@@ -30,7 +29,7 @@ A sugestão de venda fez que o consumidor já inicie o carrinho com dois itens, 
 
 # Divisão da equipe
 
-- **Front-end, aprsentação, estilos, marketing e imagens**
+- **Front-end, apresentação, estilos, marketing e imagens**
 Bruna, Ericky, Filipe, Jean, Letícia, Marcelo, Matheus
 
 - **Back-end, Infra e Dados**
