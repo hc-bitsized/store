@@ -63,9 +63,10 @@ Após a organização dos times de Front-end e back-end, a equipe fez um estudo 
 - [Responsive Layout](https://developers.vtex.com/vtex-developer-docs/docs/vtex-responsive-layout)
 
 ## Backend desenvolvido na AWS
-![bitsized.drawio-1.png](https://imgkub.com/images/2022/08/08/bitsized.drawio-1.png) 
+![Admin-fluxograma.png](https://imgkub.com/images/2022/08/08/Admin-fluxograma.png)
 
 # Loja virtual - layout da aplicação e responsividade
+
 
 # Admin e configurações de sugestão
 
