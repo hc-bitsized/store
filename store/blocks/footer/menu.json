@@ -4,14 +4,13 @@
       "orientation": "vertical"
     },
     "children": [
-      "menu-item#news",
-      "menu-item#sale",
-      "menu-item#combinacoes"
+      "menu-item#novidades",
+      "menu-item#ofertas"
     ]
   },
-  "menu-item#news": {
+  "menu-item#novidades": {
     "props": {
-      "id": "menu-item-news",
+      "id": "menu-item-novidades",
       "type": "custom",
       "iconId": null,
       "highlight": false,
@@ -25,9 +24,9 @@
       }
     }
   },
-  "menu-item#sale": {
+  "menu-item#ofertas": {
     "props": {
-      "id": "menu-item-sale",
+      "id": "menu-item-ofertas",
       "type": "custom",
       "iconId": null,
       "highlight": false,
@@ -37,21 +36,6 @@
         "noFollow": false,
         "tagTitle": "Ofertas",
         "text": "Ofertas"
-      }
-    }
-  },
-  "menu-item#combinacoes": {
-    "props": {
-      "id": "menu-item-combinacoes",
-      "type": "custom",
-      "iconId": null,
-      "highlight": false,
-      "itemProps": {
-        "type": "internal",
-        "href": "#",
-        "noFollow": false,
-        "tagTitle": "Combinações",
-        "text": "Combinações"
       }
     }
   },
@@ -166,7 +150,7 @@
     "children": [
       "menu-item#roupas-femininas-mobile",
       "menu-item#masculino-mobile",
-      "menu-item#sale-mobile"
+      "menu-item#ofertas-mobile"
     ]
   },
   "menu-item#roupas-femininas-mobile": {
@@ -228,29 +212,13 @@
       "menu-item#Shorts-masculinos"
     ]
   },
-  "menu-item#sale-mobile": {
+  "menu-item#ofertas-mobile": {
     "props": {
       "itemProps": {
         "tagTitle": "Ofertas",
         "text": "Ofertas"
       }
-    },
-    "blocks": [
-      "vtex.menu@2.x:submenu.accordion#sale"
-    ]
-  },
-  "vtex.menu@2.x:submenu.accordion#sale": {
-    "children": [
-      "vtex.menu@2.x:menu#footer-sale-mobile"
-    ]
-  },
-  "vtex.menu@2.x:menu#footer-sale-mobile": {
-    "props": {
-      "orientation": "vertical"
-    },
-    "children": [
-      "menu-item#combinacoes"
-    ]
+    }
   },
   "menu-item#roupas-femininas": {
     "props": {
