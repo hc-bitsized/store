@@ -35,6 +35,7 @@ function ProductCombinations() {
 
   const [searchQuery, setSearchQuery] = useState<string>('')
   const [searchNotFoundMessage, setSearchNotFoundMessage] = useState<string>('')
+  const [maxProducts, setMaxProducts] = useState<number>(5)
 
   const searchInputRef = useRef()
 
@@ -232,6 +233,7 @@ function ProductCombinations() {
   const handleSearchQuery = (e: React.ChangeEvent<HTMLInputElement>) => {
     if(e.target.value == ''){
       setSearchedProductsIds([])
+      setMaxProducts(5)
     }  
     setSearchQuery(e.target.value)
   }
@@ -245,6 +247,7 @@ function ProductCombinations() {
     })
 
     matchedProducts.length === 0 ? setSearchNotFoundMessage("Nenhum produto encontrado") : setSearchNotFoundMessage('')
+    setMaxProducts(5)
     setSearchedProductsIds(matchedProducts)
   }
 
@@ -278,9 +281,13 @@ function ProductCombinations() {
   }
 
   const renderProducts = (): React.ReactElement[] => {
+    let count = 0
     const productBlocks: React.ReactElement[] = []
-    productsData.forEach((product, index) => {
-      if(product.isActive && (searchedProductsIds.includes(product.id) || searchedProductsIds.length === 0)) {
+    // productsData.forEach((product, index) => {
+    for(const [index, product] of productsData.entries()){
+      if(product.isActive && count < maxProducts && (searchedProductsIds.includes(product.id) || searchedProductsIds.length === 0)) {
+        console.log(searchedProductsIds.length)
+        count+=1
         productBlocks.push(
           <PageBlock key={product.id}>
             <div className="flex flex-column items-center justify-center">
@@ -312,7 +319,7 @@ function ProductCombinations() {
           </PageBlock>
         )
       }
-    })
+    }
 
     return productBlocks
   }
@@ -335,12 +342,25 @@ function ProductCombinations() {
           disabled={productsLoading}
         />
       </div>
+      <div className="flex justify-center items-center">
+              <h3>{`${searchedProductsIds.length > 0 ? searchedProductsIds.length : productsData.length} produto(s) encontrado(s)` }</h3>
+      </div>
         {
           productsLoading ? 
           <PageBlock> <Spinner /> </PageBlock>   
           :
           renderProducts()
         }
+        <div className="flex mt5 justify-center items-center">
+          <Button 
+            size="small"
+            variation="secondary"
+            onClick={() => setMaxProducts(current => current+5)}
+            disabled={searchedProductsIds.length > 0 ? maxProducts >= searchedProductsIds.length : maxProducts >= productsData.length}
+            >
+            Carregar mais
+          </Button>
+        </div>
       </PageBlock>
     </Layout>
   )
