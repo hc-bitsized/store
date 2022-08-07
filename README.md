@@ -13,6 +13,7 @@ Neste repositório apresentamos os trabalhos desenvolvidos pela equipe 4 da casa
   - [Frontend: experiência de compra, telas e detalhes do produto](##Frontend)  
   - [Backend desenvolvido na AWS](##Backend)
 - [Loja virtual - layout da aplicação e responsividade](#Loja-virtual-layout-e-responsividade)
+- [Admin e configurações de sugestão](#admin-e-configurações-de-sugestão)
 - [Apresentação do processo de venda com validação em Javascript](#Apresentação-do-processo-de-venda-com-validação-em-javascript)
 - [Montagem do perfil do cliente com base nas compras realizadas](#Profiling)
 - [Considerações finais](#Considerações-finais)
@@ -56,15 +57,21 @@ Após a organização dos times de Front-end e back-end, a equipe fez um estudo 
   - [Elastic Container Service (ECS)](https://aws.amazon.com/pt/ecs/)  
 - [Docker](https://www.docker.com/)
 
-# Frontend:
+## Frontend:
 
 - [Product Summary SKU Selector](https://developers.vtex.com/vtex-developer-docs/docs/vtex-product-summary-productsummaryskuselector)
 - [Condition Layout](https://developers.vtex.com/vtex-developer-docs/docs/vtex-condition-layout)
 - [Responsive Layout](https://developers.vtex.com/vtex-developer-docs/docs/vtex-responsive-layout)
 
-# Loja-virtual-layout-e-responsividade
+## Backend desenvolvido na AWS
+![bitsized.drawio-1.png](https://imgkub.com/images/2022/08/08/bitsized.drawio-1.png) 
 
-# Apresentação-do-processo-de-venda-com validação-em-Javascript
+# Loja virtual - layout da aplicação e responsividade
+
+# Admin e configurações de sugestão
+
+![Diagrama-sem-nome.drawio-2.png](https://imgkub.com/images/2022/08/08/Diagrama-sem-nome.drawio-2.png)
+
 
 # Membros da equipe
 
