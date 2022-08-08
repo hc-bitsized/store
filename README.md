@@ -168,7 +168,7 @@ Após a organização dos times de Front-end e back-end, a equipe fez um estudo 
   <a href="https://github.com/lets-programming" target="_blank">
     <img align="left" src="https://img.shields.io/badge/Github-423f6d?style=for-the-badge&logo=github&logoColor=753ed2" />        
   </a>&nbsp;&nbsp;
-  <a href="https://www.linkedin.com/in/letícia-costa" target="_blank">
+  <a href="https://www.linkedin.com/in/letícia-costa-b81187237" target="_blank">
     <img align="left" src="https://img.shields.io/badge/LinkedIN-423f6d?style=for-the-badge&logo=linkedin&logoColor=753ed2" />
   </a>&nbsp;&nbsp;
 </p>
@@ -179,7 +179,7 @@ Após a organização dos times de Front-end e back-end, a equipe fez um estudo 
   <a href="https://github.com/FelixMarcelo" target="_blank">
     <img align="left" src="https://img.shields.io/badge/Github-423f6d?style=for-the-badge&logo=github&logoColor=753ed2" />        
   </a>&nbsp;&nbsp;
-  <a href="https://www.linkedin.com/in/marcelo-felix/" target="_blank">
+  <a href="https://www.linkedin.com/in/marcelo-felix-a8845b144/" target="_blank">
     <img align="left" src="https://img.shields.io/badge/LinkedIN-423f6d?style=for-the-badge&logo=linkedin&logoColor=753ed2" />
   </a>&nbsp;&nbsp;
 </p>
@@ -190,7 +190,7 @@ Após a organização dos times de Front-end e back-end, a equipe fez um estudo 
   <a href="https://github.com/mahteusz" target="_blank">
     <img align="left" src="https://img.shields.io/badge/Github-423f6d?style=for-the-badge&logo=github&logoColor=753ed2" />        
   </a>&nbsp;&nbsp;
-  <a href="https://www.linkedin.com/in/mateus-marques" target="_blank">
+  <a href="https://www.linkedin.com/in/mateus-marques-b4875a22a/" target="_blank">
     <img align="left" src="https://img.shields.io/badge/LinkedIN-423f6d?style=for-the-badge&logo=linkedin&logoColor=753ed2" />
   </a>&nbsp;&nbsp;
 </p>  
