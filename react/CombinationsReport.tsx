@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Layout, PageBlock, Table, Button, EXPERIMENTAL_Select as Select } from 'vtex.styleguide'
 
 interface ItemTable {
@@ -13,10 +13,6 @@ function WeeklySuggestions() {
   const [selected, setSelected] = useState<string>('08')
 
   const API = 'https://bitsized.socialfitness.com.br/api'
-
-  useEffect(() => {
-    fetchSuggestions()
-  }, [])
 
   const tableSchema = {
     properties: {
@@ -101,9 +97,10 @@ function WeeklySuggestions() {
   ]
 
   const fetchSuggestions = async () => {
+    setItemsTable([])
     setSuggestionsLoading(true)
     let allItems:ItemTable[] = []
-    const res = await fetch(`${API}/suggestion-results/?period=2022-08`)
+    const res = await fetch(`${API}/suggestion-results/?period=2022-${selected}`)
     const json = await res.json()
     const content = json.data.content
     content.forEach((item:any) => {
@@ -141,18 +138,25 @@ function WeeklySuggestions() {
         <Button 
           size="small"
           variation="secondary"
+          disabled={suggestionsLoading}
+          onClick={() => fetchSuggestions()}
           >
           Visualizar mês
         </Button>
       </div>
       <div className="mb5">
-        <Table
-          fullWidth
-          schema={tableSchema}
-          items={itemsTable}
-          loading={suggestionsLoading}
-          dynamicRowHeight={true}
-        />
+        {
+          itemsTable.length > 0 ?
+          <Table
+            fullWidth
+            schema={tableSchema}
+            items={itemsTable}
+            loading={suggestionsLoading}
+            dynamicRowHeight={true}
+          />
+          :
+          <></>
+        }
       </div>
       </PageBlock>
     </Layout>
