@@ -110,7 +110,9 @@ async function _getAll(app, filters) {
 
     for ( let suggestion of suggestions ) {
         const ordersData = await _getById(app, filters, suggestion.suggestionId, true)
-        data.push(ordersData)
+        if (ordersData != null){
+            data.push(ordersData)
+        }
     }
 
     return data
