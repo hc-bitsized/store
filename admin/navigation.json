@@ -9,7 +9,7 @@
         },
         {
             "labelId": "admin-example.navigation.promotions",
-            "path": "/admin/combinations-promotion"
+            "path": "/admin/combinations-report"
         }
     ]
 }

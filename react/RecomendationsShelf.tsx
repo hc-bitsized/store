@@ -346,7 +346,7 @@ const RecomendationsShelf = () => {
     // Renderiza na pdp
     if (arrayProducts.length <= 1) {
 
-        return <h3>Carregando...</h3>
+        return <Loading>Carregando...</Loading>
         
     } else {
         return (

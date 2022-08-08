@@ -5,7 +5,7 @@
     },
 
     "admin.app.combinations-promotion": {
-        "component": "WeeklySuggestions",
-        "path": "/admin/app/combinations-promotion"
+        "component": "CombinationsReport",
+        "path": "/admin/app/combinations-report"
     }
 }
