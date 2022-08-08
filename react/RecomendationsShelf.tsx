@@ -353,6 +353,11 @@ const RecomendationsShelf = () => {
             <Container className={`${handles.containerShelf} container`}>
                 <Title>
                     <h1>Compre Junto</h1>
+                    <p>Quer saber o que estão levando junto com {productContext?.product?.productName}?</p>
+                    {arrayProducts.length === 2 ? 
+                        <p>Preparamos uma sugestão pra você!</p>
+                        :
+                        <p>Preparamos algumas sugestões pra você!</p> }
                 </Title>
                 {arrayProducts && loading ?
                     [1, 2, 3, 4, 5, 6, 7, 8, 9].slice(0, (arrayProducts.length - 1)).map(block => (
