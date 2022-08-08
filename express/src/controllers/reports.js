@@ -40,7 +40,7 @@ async function _getById(app, filters, suggestionId, getAll = false) {
     }
 
     const suggestion = await app.models.Suggestion.findOne({
-        where : { suggestionId },
+        where : { suggestionId, deleted: 0 },
         include: [
             {model: app.models.Product, as: 'product'},
             {model: app.models.Product, as: 'suggested'}
