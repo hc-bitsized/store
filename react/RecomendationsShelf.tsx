@@ -464,12 +464,12 @@ const ContainerProduct = styled.div`
     max-height: 700px;
     min-height: 700px;
     @media(max-width: 768px) {
-    max-height: 500px;
-    min-height: 500px;
+    max-height: 700px;
+    min-height: 700px;
     }
     @media(max-width: 425px) {
-    max-height: 380px;
-    min-height: 380px;
+    max-height: 500px;
+    min-height: 500px;
     }
 `
 const CartButton = styled.div`
