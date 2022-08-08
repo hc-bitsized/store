@@ -182,7 +182,7 @@ const RecomendationsShelf = () => {
                                     id={product.productId}
                                     imageURL={product.items[skuSelection[arrayProducts.findIndex((x: any) => x.productId === product.productId)]].images[0].imageUrl}
                                     name={product.productName}
-                                    sellingPrice={product.items[0].sellers[0].commertialOffer.ListPrice}
+                                    noDiscount={product.items[0].sellers[0].commertialOffer.PriceWithoutDiscount}
                                     price={product.items[skuSelection[arrayProducts.findIndex((x: any) => x.productId === product.productId)]].sellers[0].commertialOffer.Price}
                                 />
                                 {/* ------------------------- SKU's --------------------------------------- */}
@@ -230,7 +230,7 @@ const RecomendationsShelf = () => {
                                         id={product.productId}
                                         imageURL={product.items[skuSelection[arrayProducts.findIndex((x: any) => x.productId === product.productId)]].images[0].imageUrl}
                                         name={product.productName}
-                                        sellingPrice={product.items[0].sellers[0].commertialOffer.ListPrice}
+                                        noDiscount={product.items[0].sellers[0].commertialOffer.PriceWithoutDiscount}
                                         price={product.items[skuSelection[arrayProducts.findIndex((x: any) => x.productId === product.productId)]].sellers[0].commertialOffer.Price}
                                     />
                                     {/* ------------------------- SKU's --------------------------------------- */}
@@ -275,9 +275,13 @@ const RecomendationsShelf = () => {
                                         :
                                         "Leve todos os produtos"}</BigText>
                                     <SmallText>E poupe seu precioso tempo</SmallText>
+                                    {(array[0].items[0].sellers[0].commertialOffer.Price + array[1].items[0].sellers[0].commertialOffer.Price) < (array[0].items[0].sellers[0].commertialOffer.PriceWithoutDiscount + array[1].items[0].sellers[0].commertialOffer.PriceWithoutDiscount) ? 
+                                        <TotalDiscount>{formatPrice((array[0].items[0].sellers[0].commertialOffer.PriceWithoutDiscount) + (array[1].items[0].sellers[0].commertialOffer.PriceWithoutDiscount))}</TotalDiscount>
+                                        :
+                                        null}
                                     <BigText>{formatPrice(array[0].items[0].sellers[0].commertialOffer.Price + array[1].items[0].sellers[0].commertialOffer.Price)}</BigText>
                                     <CartButton id={`${array[0].productId}-${array[1].productId}`} onClick={addToCart} className='button' >
-                                        ADICIONAR TUDO AO CARRINHO
+                                        ADICIONAR TUDO AO CARRINHO 
                                     </CartButton>
                                 </TotalPrice>
                             </PlusImage>
@@ -290,7 +294,7 @@ const RecomendationsShelf = () => {
                                         id={product.productId}
                                         imageURL={product.items[skuSelection[arrayProducts.findIndex((x: any) => x.productId === product.productId)]].images[0].imageUrl}
                                         name={product.productName}
-                                        sellingPrice={product.items[0].sellers[0].commertialOffer.ListPrice}
+                                        noDiscount={product.items[0].sellers[0].commertialOffer.PriceWithoutDiscount}
                                         price={product.items[skuSelection[arrayProducts.findIndex((x: any) => x.productId === product.productId)]].sellers[0].commertialOffer.Price}
                                     />
                                     {/* ------------------------- SKU's --------------------------------------- */}
@@ -373,6 +377,11 @@ const RecomendationsShelf = () => {
 }
 
 // ------------------------------------ CSS styled components
+const TotalDiscount = styled.p`
+    text-decoration: line-through;
+    color: #727273;
+    font-size: smaller;
+`
 const Loading = styled.h3`
     text-align: center;
     font-family: San Francisco,-apple-system,BlinkMacSystemFont,avenir next,avenir,ubuntu,roboto,noto,segoe ui;

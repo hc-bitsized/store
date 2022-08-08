@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 import  { formatPrice } from '../helpers/Helper'
 
-const ShelfItem = ({id, linkURL, imageURL, name, price}: shelfType) => {    
+const ShelfItem = ({id, linkURL, imageURL, name, price, noDiscount}: shelfType) => {    
     return(
         <ItemContainer key={id} >            
             <ProductLink href={`${linkURL}`} > 
@@ -12,14 +12,17 @@ const ShelfItem = ({id, linkURL, imageURL, name, price}: shelfType) => {
                     <Img src={`${imageURL}`} alt={`${name}`} />
                 </div>
                 <ProductName>{`${name}`}</ProductName>
-                <div>
-                    {/* <p> 
-                        {formatPrice(sellingPrice)}
-                    </p> */}
+                <Price>
+                    {noDiscount > price ? 
+                        <Discount> 
+                            {formatPrice(noDiscount)}
+                        </Discount> 
+                        :
+                        <div></div>}
                     <ProductPrice>
                         {formatPrice(price)}
                     </ProductPrice>
-                </div> 
+                </Price> 
                 
             </ProductLink>            
         </ItemContainer>        
@@ -30,6 +33,16 @@ const ShelfItem = ({id, linkURL, imageURL, name, price}: shelfType) => {
 }
 
 // ------------------------------------- CSS styles
+const Price = styled.div`
+    min-height: 50px;
+    max-height: 50px;
+    max-width: 350px
+`
+const Discount = styled.p`
+    text-decoration: line-through;
+    color: #727273;
+    font-size: smaller;
+`
 const Img = styled.img`
     max-height: 350px;
     min-height: 350px;
