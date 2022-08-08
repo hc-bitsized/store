@@ -357,11 +357,11 @@ const RecomendationsShelf = () => {
             <Container className={`${handles.containerShelf} container`}>
                 <Title>
                     <h1>Compre Junto</h1>
-                    <p>Quer saber o que estão levando junto com {productContext?.product?.productName}?</p>
+                    <p>Quer saber o que levar junto com {productContext?.product?.productName}?</p>
                     {arrayProducts.length === 2 ? 
                         <p>Preparamos uma sugestão pra você!</p>
                         :
-                        <p>Preparamos algumas sugestões pra você!</p> }
+                        <p>Preparamos algumas sugestões para você!</p> }
                 </Title>
                 {arrayProducts && loading ?
                     [1, 2, 3, 4, 5, 6, 7, 8, 9].slice(0, (arrayProducts.length - 1)).map(block => (
@@ -411,40 +411,6 @@ const Container = styled.div`
     max-width: 1280px;  
     margin: 0 auto;
 
-    @media(max-width: 1280px) {
-   
-    .container-product h4{
-        font-size:15px;
-    }
-    
-  } 
-  @media(max-width: 1129px) {
-    
-    .container-product h4{
-        font-size:15px;
-    }
-    
-  } 
-  @media(max-width: 1054px) {
-    
-    .container-product h4{
-        font-size:15px;
-    }
-    
-  } 
-  @media(max-width: 900px) {
-    
-    .container-product h4{
-        font-size:15px;
-    }
-    
-  } 
-  @media(max-width: 830px) {
-    .container-product h4{
-        font-size:15px;
-    }
-    
-  } 
     @media(max-width: 768px) {
     .item-container{
     flex-direction: column;
@@ -502,8 +468,8 @@ const ContainerProduct = styled.div`
     min-height: 500px;
     }
     @media(max-width: 425px) {
-    max-height: 350px;
-    min-height: 350px;
+    max-height: 380px;
+    min-height: 380px;
     }
 `
 const CartButton = styled.div`

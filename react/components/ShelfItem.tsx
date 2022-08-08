@@ -50,10 +50,12 @@ const Img = styled.img`
     @media(max-width: 1024px) {
     max-height: 300px;
     min-height: 300px;
+    width: auto;
     }
     @media(max-width: 768px) {
     max-height: 250px;
     min-height: 250px;
+    width: auto;
     }
     @media(max-width: 425px) {
     max-height: 150px;
@@ -73,41 +75,7 @@ const ProductPrice = styled.p`
     color: black;
 `
 const ItemContainer = styled.div`
-    padding: 20px;
-    /* max-width:300px;
-    min-width: 300px;    
-    height: auto; */
-   
-    @media(max-width: 1280px) {
-    padding: 15px;
-    max-width:250px;
-    min-width: 250px;    
-    height: auto;
-    }
-    @media(max-width: 1129px) {
-    padding: 5px;
-    max-width:200px;
-    min-width: 200px;    
-    height: auto;
-    }
-    @media(max-width: 900px) {
-    padding: 10px;
-    max-width:170px;
-    min-width: 170px;    
-    height: auto;
-    }
-    @media(max-width: 768px) {
-    /* padding: 0px;
-    max-width:300px;
-    min-width: 300px;    
-    height: auto; */
-    }
-    @media(max-width: 425px) {
-    padding: 0px;
-    max-width:150px;
-    min-width: 150px;    
-    height: auto;
-    }
+    padding: 20px;  
 `
 
 
