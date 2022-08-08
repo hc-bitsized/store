@@ -215,6 +215,9 @@
   "menu-item#ofertas-mobile": {
     "props": {
       "itemProps": {
+        "type": "internal",
+        "href": "/139?map=productClusterIds",
+        "noFollow": true,
         "tagTitle": "Ofertas",
         "text": "Ofertas"
       }
