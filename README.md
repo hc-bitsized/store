@@ -37,17 +37,22 @@ Danilo, Ericky Henrique e Christiany
 
 ## Ferramentas utilizadas na organização dos trabalhos
 
-** Gather: encontros síncronos e mentorias oferecidas pelo Hiring Coders;  
+- *Gather*: encontros síncronos e mentorias oferecidas pelo Hiring Coders;  
+
 <p>
   <img src="https://imgkub.com/images/2022/08/08/gathering.jpg" alt="gathering.jpg" border="0" align="middle">
-  </p>
-** Github: repositórios e controle de versões;  
-** Google Drive: compartilhamento de arquivos;  
-** Metodologia ágil:  
-  * Matriz de Eisenhower: determinar a urgência e importância das tarefas;
-  * Kanban: acompanhar o andamento do fluxo de trabalho;  
-** Miro: quadros temáticos e divisão de tarefas;  
-** Whatsapp  
+  </p>  
+  
+- *Github*: repositórios e controle de versões;  
+
+- *Google Drive*: compartilhamento de arquivos;  
+
+- *Metodologia ágil*:  
+
+  - *Matriz de Eisenhower*: determinar a urgência e importância das tarefas;
+  - *Kanban*: acompanhar o andamento do fluxo de trabalho;  
+- *Miro*: quadros temáticos e divisão de tarefas;  
+- *Whatsapp*.
 
 
 
@@ -58,9 +63,12 @@ Danilo, Ericky Henrique e Christiany
 - [React](https://pt-br.reactjs.org/)
 - [VTEX IO](https://developers.vtex.com/vtex-developer-docs/docs/welcome) :
   -  [VTEX Store Framework](https://developers.vtex.com/vtex-developer-docs/docs/vtex-io-documentation-what-is-vtex-store-framework)
-- [Product Summary SKU Selector](https://developers.vtex.com/vtex-developer-docs/docs/vtex-product-summary-productsummaryskuselector)
-- [Condition Layout](https://developers.vtex.com/vtex-developer-docs/docs/vtex-condition-layout)
-- [Responsive Layout](https://developers.vtex.com/vtex-developer-docs/docs/vtex-responsive-layout)
+  - [Product Summary SKU Selector](https://developers.vtex.com/vtex-developer-docs/docs/vtex-product-summary-productsummaryskuselector)
+  - [Condition Layout](https://developers.vtex.com/vtex-developer-docs/docs/vtex-condition-layout)
+  - [Responsive Layout](https://developers.vtex.com/vtex-developer-docs/docs/vtex-responsive-layout)
+  - [VTEX Styleguide](https://styleguide.vtex.com/)
+  - [VTEX Flex Layout](https://developers.vtex.com/vtex-developer-docs/docs/vtex-flex-layout)
+  - [VTEX Order Itens](https://www.npmjs.com/package/@vtex/order-items)
 
 ![Animação22](https://user-images.githubusercontent.com/74685583/183314257-afbe37fd-6ecc-411a-b058-3ea66daf293c.gif)
 
