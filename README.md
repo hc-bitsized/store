@@ -13,6 +13,7 @@ Neste repositório apresentamos os trabalhos desenvolvidos pela casa Bitsized, n
 - [Tecnologias utilizadas](#Tecnologias-utilizadas)  
   - [Frontend: experiência de compra, telas e detalhes do produto](##Frontend)  
   - [Backend desenvolvido na AWS](##Backend)
+- [Chamadas - API sugestões](##Chamadas-api-sugestões)
 - [Admin e configurações de sugestão](#admin-e-configurações-de-sugestão)
 - [Membros da equipe](#Membros-da-equipe)
 
@@ -91,6 +92,11 @@ Danilo, Ericky Henrique e Christiany
 
 [![bitsized.drawio-1.png](https://imgkub.com/images/2022/08/08/bitsized.drawio-1.png)](https://imgkub.com/image/NQXSD)
 
+# Chamadas - API sugestões
+
+![Diagrama-sem-nome.drawio-9.png](https://imgkub.com/images/2022/08/08/Diagrama-sem-nome.drawio-9.png)
+<br>
+![API-2.drawio.png](https://imgkub.com/images/2022/08/08/API-2.drawio.png)
 
 
 # Admin e configurações de sugestão
