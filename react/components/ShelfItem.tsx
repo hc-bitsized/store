@@ -34,6 +34,20 @@ const Img = styled.img`
     max-height: 350px;
     min-height: 350px;
     width: auto;
+    @media(max-width: 1024px) {
+    max-height: 300px;
+    min-height: 300px;
+    }
+    @media(max-width: 768px) {
+    max-height: 250px;
+    min-height: 250px;
+    }
+    @media(max-width: 425px) {
+    max-height: 150px;
+    min-height: 150px;
+    width: auto;
+    }
+
 `
 const ProductName = styled.h4`    
     color: black;
