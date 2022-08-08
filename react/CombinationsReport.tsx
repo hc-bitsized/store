@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Layout, PageBlock, Table, Button, EXPERIMENTAL_Select as Select } from 'vtex.styleguide'
+import { Layout, PageBlock, Table, Button, Spinner, EXPERIMENTAL_Select as Select } from 'vtex.styleguide'
 
 interface ItemTable {
   product: string,
@@ -10,6 +10,7 @@ interface ItemTable {
 function WeeklySuggestions() {
   const [itemsTable, setItemsTable] = useState<ItemTable[]>([])
   const [suggestionsLoading, setSuggestionsLoading] = useState<boolean>(false)
+  const [searched, setSearched] = useState<boolean>(false)
   const [selected, setSelected] = useState<string>('08')
 
   const API = 'https://bitsized.socialfitness.com.br/api'
@@ -104,16 +105,19 @@ function WeeklySuggestions() {
     const json = await res.json()
     const content = json.data.content
     content.forEach((item:any) => {
-      const newItem: ItemTable = {
-        product: item.product.productName,
-        suggestion: item.suggested.productName,
-        count: item.countOrdersWithThisSuggestion
+      if(item.countOrdersWithThisSuggestion > 0){
+        const newItem: ItemTable = {
+          product: item.product.productName,
+          suggestion: item.suggested.productName,
+          count: item.countOrdersWithThisSuggestion
+        }
+        allItems.push(newItem)
       }
-      allItems.push(newItem)
     })
     allItems = allItems.sort((a, b) => a.count >= b.count ? -1 : 1)
     console.log(allItems)
     setItemsTable(allItems)
+    setSearched(true)
     setSuggestionsLoading(false)
   }
 
@@ -144,8 +148,11 @@ function WeeklySuggestions() {
           Visualizar mês
         </Button>
       </div>
-      <div className="mb5">
+      <div>
         {
+          suggestionsLoading ? 
+          <Spinner />
+          :
           itemsTable.length > 0 ?
           <Table
             fullWidth
@@ -154,6 +161,11 @@ function WeeklySuggestions() {
             loading={suggestionsLoading}
             dynamicRowHeight={true}
           />
+          :
+          searched ?
+          <div className="flex items-center justify-center">
+            <span style={{marginTop: '20px'}}>Ops, ainda não tivemos vendas para nenhuma sugestão no mês escolhido</span>
+          </div>
           :
           <></>
         }
