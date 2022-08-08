@@ -398,67 +398,34 @@ const Container = styled.div`
     margin: 0 auto;
 
     @media(max-width: 1280px) {
-    margin: 0 auto;
-    .container-product{
-        width: 250px;
-        padding: 10px;
-    }
-    .container-product img{
-        width: 200px;
-    }
+   
     .container-product h4{
         font-size:15px;
     }
     
   } 
   @media(max-width: 1129px) {
-    .container-product{
-        width: 250px;
-        padding: 10px;
-    }
-    .container-product img{
-        width: 200px;
-    }
+    
     .container-product h4{
         font-size:15px;
     }
     
   } 
   @media(max-width: 1054px) {
-    margin: 0 auto;
-    .container-product{
-        width: 200px;
-        padding: 10px;
-    }
-    .container-product img{
-        width: 150px;
-    }
+    
     .container-product h4{
         font-size:15px;
     }
     
   } 
   @media(max-width: 900px) {
-    margin: 0 auto;
-    .container-product{
-        width: 170px;
-    }
-    .container-product img{
-        width: 130px;
-    }
+    
     .container-product h4{
         font-size:15px;
     }
     
   } 
   @media(max-width: 830px) {
-    margin: 0 auto;
-    .container-product{
-        width: 150px;
-    }
-    .container-product img{
-        width: 110px;
-    }
     .container-product h4{
         font-size:15px;
     }
@@ -471,12 +438,7 @@ const Container = styled.div`
     .plus-image{
         flex-direction: column;
     }
-    .container-product{
-        /* width: 300px; */
-    }
-    .container-product img{
-        width: 250px;
-    }
+   
     .container-product h4{
         font-size:15px;
     }
@@ -489,16 +451,6 @@ const Container = styled.div`
     }
     .plus-image{
         flex-direction: column;
-    }
-    .container-product{
-        width: 200px;
-        
-    }
-    .container-product img{
-        width:150px;
-    }
-    .container-product h4{
-        font-size:15px;
     }
     
   } 
@@ -531,8 +483,13 @@ const TotalPrice = styled.div`
 const ContainerProduct = styled.div` 
     max-height: 700px;
     min-height: 700px;
-    img{
-        /* width:300px; */
+    @media(max-width: 768px) {
+    max-height: 500px;
+    min-height: 500px;
+    }
+    @media(max-width: 425px) {
+    max-height: 350px;
+    min-height: 350px;
     }
 `
 const CartButton = styled.div`
