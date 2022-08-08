@@ -346,7 +346,7 @@ const RecomendationsShelf = () => {
     // Renderiza na pdp
     if (arrayProducts.length <= 1) {
 
-        return null
+        return <h3>Carregando...</h3>
         
     } else {
         return (
@@ -389,7 +389,8 @@ const SkusBlock = styled.div`
        
 `
 const Sku = styled.div`
-    
+    max-height: 90px;
+    min-height: 90px;
 `
 
 const Container = styled.div` 
@@ -471,7 +472,7 @@ const Container = styled.div`
         flex-direction: column;
     }
     .container-product{
-        width: 300px;
+        /* width: 300px; */
     }
     .container-product img{
         width: 250px;
@@ -527,9 +528,11 @@ const TotalPrice = styled.div`
     size: 345px;
     text-align: center;
 `
-const ContainerProduct = styled.div`
+const ContainerProduct = styled.div` 
+    max-height: 700px;
+    min-height: 700px;
     img{
-        width:300px;
+        /* width:300px; */
     }
 `
 const CartButton = styled.div`

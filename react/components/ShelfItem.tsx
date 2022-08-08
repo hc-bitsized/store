@@ -9,7 +9,7 @@ const ShelfItem = ({id, linkURL, imageURL, name, price}: shelfType) => {
         <ItemContainer key={id} >            
             <ProductLink href={`${linkURL}`} > 
                 <div >
-                    <img src={`${imageURL}`} alt={`${name}`} />
+                    <Img src={`${imageURL}`} alt={`${name}`} />
                 </div>
                 <ProductName>{`${name}`}</ProductName>
                 <div>
@@ -30,6 +30,11 @@ const ShelfItem = ({id, linkURL, imageURL, name, price}: shelfType) => {
 }
 
 // ------------------------------------- CSS styles
+const Img = styled.img`
+    max-height: 350px;
+    min-height: 350px;
+    width: auto;
+`
 const ProductName = styled.h4`    
     color: black;
 `
@@ -42,9 +47,9 @@ const ProductPrice = styled.p`
 `
 const ItemContainer = styled.div`
     padding: 20px;
-    max-width:300px;
+    /* max-width:300px;
     min-width: 300px;    
-    height: auto;
+    height: auto; */
    
     @media(max-width: 1280px) {
     padding: 15px;
@@ -65,10 +70,10 @@ const ItemContainer = styled.div`
     height: auto;
     }
     @media(max-width: 768px) {
-    padding: 0px;
+    /* padding: 0px;
     max-width:300px;
     min-width: 300px;    
-    height: auto;
+    height: auto; */
     }
     @media(max-width: 425px) {
     padding: 0px;
