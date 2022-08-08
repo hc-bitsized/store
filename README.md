@@ -19,7 +19,7 @@ Neste repositório apresentamos os trabalhos desenvolvidos pela casa Bitsized, n
 
 # Cenário  
 
-Na segunda-feira, 25 de julho de 2022, os estudantes da Fase 3 do Hiring Coders 3 foram incumbidos de utilizarem os conhecimentos construídos nas fases anteriores do programa para elaboração de um projeto a ser entregue no dia 08 de agosto de 2022. A seguir, expomos o desafio que nos foi proposto pelos organizadores do evento.
+Na segunda-feira, 25 de julho de 2022, os estudantes da Fase 4 do Hiring Coders 3ª edição foram incumbidos de utilizarem os conhecimentos construídos nas fases anteriores do programa para elaboração de um projeto a ser entregue no dia 08 de agosto de 2022. A seguir, expomos o contexto do desafio que nos foi proposto pelos organizadores do evento.
 
 João é dono de uma loja que vende roupas e acessórios com calça, camiseta, meia, óculos escuro e etc…A loja de João já possui uma grande base de pedidos, que em sua maioria possui apenas 2 itens.
 Para aumentar a quantidade de itens e assim o valor do pedido, João quer sugerir produtos que sejam comuns na compra, porém, deve permitir a mudança do carrinho de compras para que não seja enquadrado em venda casada.
@@ -28,10 +28,10 @@ A sugestão de venda fez que o consumidor já inicie o carrinho com dois itens, 
 
 # Divisão da equipe
 
-- **Front-end, apresentação, estilos, marketing e imagens**
+- **Front-end, apresentação, estilos, marketing e imagens:**
 Bruna, Ericky, Filipe, Jean, Letícia, Marcelo, Matheus
 
-- **Back-end, Infra e Dados**
+- **Back-end, Infra e Dados:**
 Danilo, Ericky Henrique e Christiany
 
 # Desenvolvimento dos trabalhos
@@ -40,8 +40,8 @@ Danilo, Ericky Henrique e Christiany
 
 - *Gather*: encontros síncronos e mentorias oferecidas pelo Hiring Coders;  
 
-<p>
-  <img src="https://imgkub.com/images/2022/08/08/gathering.jpg" alt="gathering.jpg" border="0" align="middle">
+<p align='center'>
+  <img src="https://imgkub.com/images/2022/08/09/WhatsApp-Image-2022-08-08-at-13.47.47.jpg" alt="Imagem Gathering" border="0">
   </p>  
   
 - *Github*: repositórios e controle de versões;  
@@ -71,7 +71,9 @@ Danilo, Ericky Henrique e Christiany
   - [VTEX Flex Layout](https://developers.vtex.com/vtex-developer-docs/docs/vtex-flex-layout)
   - [VTEX Order Itens](https://www.npmjs.com/package/@vtex/order-items)
 
-![Animação22](https://user-images.githubusercontent.com/74685583/183314257-afbe37fd-6ecc-411a-b058-3ea66daf293c.gif)
+<p align='center'>
+  <img src= "https://user-images.githubusercontent.com/74685583/183314257-afbe37fd-6ecc-411a-b058-3ea66daf293c.gif">
+ </p>  
 
 ## Backend desenvolvido na AWS
 
@@ -90,20 +92,27 @@ Danilo, Ericky Henrique e Christiany
   - [Elastic Container Service (ECS)](https://aws.amazon.com/pt/ecs/)  
 - [Docker](https://www.docker.com/)
 
-[![bitsized.drawio-1.png](https://imgkub.com/images/2022/08/08/bitsized.drawio-1.png)](https://imgkub.com/image/NQXSD)
+<p align='center'>
+ <img src= "https://imgkub.com/images/2022/08/08/bitsized.drawio-1.png">
+ </p>
 
 # Chamadas - API sugestões
 
-![Diagrama-sem-nome.drawio-9.png](https://imgkub.com/images/2022/08/08/Diagrama-sem-nome.drawio-9.png)
-<br>
-![API-2.drawio.png](https://imgkub.com/images/2022/08/08/API-2.drawio.png)
+<p align='center'>
+<img src= "https://imgkub.com/images/2022/08/08/Diagrama-sem-nome.drawio-9.png">
+<img src= "https://imgkub.com/images/2022/08/08/API-2.drawio.png">
+</p>
 
 
 # Admin e configurações de sugestão
-![Admin-fluxograma.png](https://imgkub.com/images/2022/08/08/Admin-fluxograma.png)
+
+<p align='center'>
+<img src= "https://imgkub.com/images/2022/08/08/Admin-fluxograma.png">
+</p>
 
 
 # Membros da equipe
+
 
 - Bruna Kroth
 
@@ -217,6 +226,7 @@ Danilo, Ericky Henrique e Christiany
     <img align="left" src="https://img.shields.io/badge/LinkedIN-423f6d?style=for-the-badge&logo=linkedin&logoColor=753ed2" />
   </a>&nbsp;&nbsp;
 </p>  
+
   
 <br/>
 
