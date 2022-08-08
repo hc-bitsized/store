@@ -41,7 +41,7 @@ const RecomendationsShelf = () => {
 
 
         const productsList: any[] = []
-        for (let i = 0; i < productsIds.slice(0, 3).length; i++) {
+        for (let i = 0; i < productsIds.length; i++) {
 
             await fetch(`/api/catalog_system/pub/products/search?fq=productId:${productsIds[i]}`)
                 .then((response) => response.json())
@@ -57,7 +57,7 @@ const RecomendationsShelf = () => {
     }
     console.log('type of arrayProducts: ', typeof (arrayProducts))
     console.log('arrayProducts', arrayProducts)
-    console.log('productContext', productContext)
+    console.log('productContext', productContext) 
 
 
     // funcao que adiciona todos os produtos da combinacao no carrinho
@@ -364,7 +364,7 @@ const RecomendationsShelf = () => {
                         <p>Preparamos algumas sugestões para você!</p> }
                 </Title>
                 {arrayProducts && loading ?
-                    [1, 2, 3, 4, 5, 6, 7, 8, 9].slice(0, (arrayProducts.length - 1)).map(block => (
+                    [1, 2, 3, 4, 5, 6, 7, 8, 9].slice(0, (arrayProducts.length -1)).map(block => (
                         <ItemContainer className='item-container'>
                             {renderProducts(0, block)}
                         </ItemContainer>
