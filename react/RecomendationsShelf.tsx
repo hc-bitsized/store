@@ -558,9 +558,11 @@ const CartButton = styled.div`
     color: white;
     background-color: #8719a8;
     border-color: #ccc;
+    transition:800ms;
 
     &:hover.button {
-        background-color: #8955ff
+        background-color: #8955ff;
+        transition:800ms;
     } 
     @media(max-width: 1129px) {
         font-size: 15px;
