@@ -129,11 +129,11 @@ function _getRequestInfo(req) {
     if (req.params.id) request.suggestionId = req.params.id
 
     if (req.query.period) {
-        request.filters.startDate = moment(req.query.period).subtract(3, 'hour')
-        request.filters.endDate = moment(req.query.period).endOf('month').subtract(3, 'hour')
+        request.filters.startDate = moment(req.query.period)
+        request.filters.endDate = moment(req.query.period).endOf('month')
     } else {
-        if (req.query.startDate) request.filters.startDate = moment(req.query.startDate).subtract(3, 'hour')
-        if (req.query.endDate) request.filters.endDate = moment(req.query.endDate).subtract(3, 'hour')
+        if (req.query.startDate) request.filters.startDate = moment(req.query.startDate)
+        if (req.query.endDate) request.filters.endDate = moment(req.query.endDate)
     }
 
     return request
