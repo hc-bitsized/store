@@ -9,13 +9,11 @@ Neste repositório apresentamos os trabalhos desenvolvidos pela casa Bitsized, n
 
 - [Cenário](#Cenário)
 - [Divisão da Equipe](#Divisão-da-equipe)
+- [Desenvolvimento dos trabalhos](#Desenvolvimento-dos-trabalhos)
 - [Tecnologias utilizadas](#Tecnologias-utilizadas)  
   - [Frontend: experiência de compra, telas e detalhes do produto](##Frontend)  
   - [Backend desenvolvido na AWS](##Backend)
-- [Loja virtual - layout da aplicação e responsividade](#Loja-virtual-layout-e-responsividade)
 - [Admin e configurações de sugestão](#admin-e-configurações-de-sugestão)
-- [Apresentação do processo de venda com validação em Javascript](#Apresentação-do-processo-de-venda-com-validação-em-javascript)
-- [Montagem do perfil do cliente com base nas compras realizadas](#Profiling)
 - [Membros da equipe](#Membros-da-equipe)
 
 # Cenário  
@@ -35,16 +33,43 @@ Bruna, Ericky, Filipe, Jean, Letícia, Marcelo, Matheus
 - **Back-end, Infra e Dados**
 Danilo, Ericky Henrique e Christiany
 
+# Desenvolvimento dos trabalhos
+
+## Ferramentas utilizadas na organização dos trabalhos
+
+** Gather: encontros síncronos e mentorias oferecidas pelo Hiring Coders;  
+<p>
+  <img src="https://imgkub.com/images/2022/08/08/gathering.jpg" alt="gathering.jpg" border="0" align="middle">
+  </p>
+** Github: repositórios e controle de versões;  
+** Google Drive: compartilhamento de arquivos;  
+** Metodologia ágil:  
+  * Matriz de Eisenhower: determinar a urgência e importância das tarefas;
+  * Kanban: acompanhar o andamento do fluxo de trabalho;  
+** Miro: quadros temáticos e divisão de tarefas;  
+** Whatsapp  
+
+
+
 # Tecnologias utilizadas
 
-Após a organização dos times de Front-end e back-end, a equipe fez um estudo minucioso do cenário/problema apresentado para levantamento das tecnologias a serem utilizadas. A seguir, listamos as tecnologias utilizadas no desenvolvimento deste trabalho:
+## Frontend:
+
+- [React](https://pt-br.reactjs.org/)
+- [VTEX IO](https://developers.vtex.com/vtex-developer-docs/docs/welcome) :
+  -  [VTEX Store Framework](https://developers.vtex.com/vtex-developer-docs/docs/vtex-io-documentation-what-is-vtex-store-framework)
+- [Product Summary SKU Selector](https://developers.vtex.com/vtex-developer-docs/docs/vtex-product-summary-productsummaryskuselector)
+- [Condition Layout](https://developers.vtex.com/vtex-developer-docs/docs/vtex-condition-layout)
+- [Responsive Layout](https://developers.vtex.com/vtex-developer-docs/docs/vtex-responsive-layout)
+
+![Animação22](https://user-images.githubusercontent.com/74685583/183314257-afbe37fd-6ecc-411a-b058-3ea66daf293c.gif)
+
+## Backend desenvolvido na AWS
 
 - [VTEX IO](https://developers.vtex.com/vtex-developer-docs/docs/welcome) :
-  - [VTEX Store Framework](https://developers.vtex.com/vtex-developer-docs/docs/vtex-io-documentation-what-is-vtex-store-framework)
   - [Orders API](https://developers.vtex.com/vtex-rest-api/reference/getorder)
   - [Products API](https://developers.vtex.com/vtex-rest-api/reference/catalog-api-get-product)
 - [NodeJS](https://nodejs.org/en/)
-- [React](https://pt-br.reactjs.org/)
 - [Express](https://expressjs.com/)
 - [Axios](https://axios-http.com/docs/intro)
 - [AWS](https://aws.amazon.com/pt/) :
@@ -56,27 +81,12 @@ Após a organização dos times de Front-end e back-end, a equipe fez um estudo 
   - [Elastic Container Service (ECS)](https://aws.amazon.com/pt/ecs/)  
 - [Docker](https://www.docker.com/)
 
-## Frontend:
-
-- [Product Summary SKU Selector](https://developers.vtex.com/vtex-developer-docs/docs/vtex-product-summary-productsummaryskuselector)
-- [Condition Layout](https://developers.vtex.com/vtex-developer-docs/docs/vtex-condition-layout)
-- [Responsive Layout](https://developers.vtex.com/vtex-developer-docs/docs/vtex-responsive-layout)
-
-
-
-[![Animacao2.gif](https://imgkub.com/images/2022/08/08/Animacao2.gif)](https://imgkub.com/image/NQcgI)
-
-## Backend desenvolvido na AWS
-
 [![bitsized.drawio-1.png](https://imgkub.com/images/2022/08/08/bitsized.drawio-1.png)](https://imgkub.com/image/NQXSD)
 
-# Loja virtual - layout da aplicação e responsividade
 
-![Animação22](https://user-images.githubusercontent.com/74685583/183314257-afbe37fd-6ecc-411a-b058-3ea66daf293c.gif)
 
 # Admin e configurações de sugestão
 ![Admin-fluxograma.png](https://imgkub.com/images/2022/08/08/Admin-fluxograma.png)
-
 
 
 # Membros da equipe
@@ -87,7 +97,7 @@ Após a organização dos times de Front-end e back-end, a equipe fez um estudo 
   <a href="https://github.com/brunakroth" target="_blank">
     <img align="left" src="https://img.shields.io/badge/Github-423f6d?style=for-the-badge&logo=github&logoColor=753ed2" />        
   </a>&nbsp;&nbsp;
-  <a href="https://www.linkedin.com/in/bruna-kroth" target="_blank">
+  <a href="https://www.linkedin.com/in/bruna-kroth-5047bb53" target="_blank">
     <img align="left" src="https://img.shields.io/badge/LinkedIN-423f6d?style=for-the-badge&logo=linkedin&logoColor=753ed2" />
   </a>&nbsp;&nbsp;
 </p>
@@ -151,7 +161,6 @@ Após a organização dos times de Front-end e back-end, a equipe fez um estudo 
 </p>
 
 - Jean Silva
-<br>
 
 <p align='center'>
   <a href="https://github.com/jeansilvatech" target="_blank">
